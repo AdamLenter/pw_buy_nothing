@@ -11,3 +11,90 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navBarHeading {
+  color: White;
+}
+
+.centered_container {
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.pageTitle {
+  padding-top: 40px;
+}
+
+.pageDiv {
+  padding-top: 20px;
+}
+
+.categoryDiv {
+  margin: auto;
+  text-align: center;
+}
+
+.category_image {
+  height: 50px;
+}
+
+.itemDiv {
+  width: 800;
+  margin: auto;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.itemCardImage {
+  height: 200px;
+}
+
+.detailsButton {
+  background-color: #3264ad;
+  color: white;
+  border: .2px;
+  border-radius: 10px;
+}
+
+.listingDiv {
+  width: 800px;
+  margin: auto;
+}
+
+.listingColumn {
+  float: left;
+  width: 50%;
+  padding: 20px;
+  margin: auto;
+  text-align: left;
+}  
+
+.listingImage {
+  height: 200px;
+  margin: auto;
+}
+
+.lotteryDiv {
+  width: 100%;
+  clear: both;
+}
+
+.lotteryEntry{
+  margin: auto;
+  width: 500px;
+}
+
+.lotteryWinner {
+  background-color: lightyellow;
+  border: solid black 0.5px;
+}
+
+textarea {
+  width: 500px;
+  height: 100px;
+}

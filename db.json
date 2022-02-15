@@ -1,0 +1,203 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Furniture",
+      "imageUrl": "data:image/jpeg;base64,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"
+    },
+    {
+      "id": 2,
+      "name": "Electronics",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_erjjYFJNUVtuFs3yL03zTN6tI7H2Kn0EyPIwB6_Qc6kPtS-R&s"
+    },
+    {
+      "id": 3,
+      "name": "Books",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjm0E5O9LJoDld__02UA-5fO7pno_K0FlUDebqLrAt38QWs3I&s"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "Couch",
+      "categoryName": "Furniture",
+      "sellerId": 1,
+      "sellerFirstName": "Matt",
+      "sellerLastName": "Perkins", 
+      "description": "We are getting a brand new couch and are looking for a good home for our old couch.",
+      "listDate": "2022-02-01 16:15:14",
+      "imageUrl": "https://az827626.vo.msecnd.net/cdn/buysell/images/thumbnail/buysell_2021-09-24-05-00-41-998_761.jpg",
+      "lotteryEntries": [
+        {
+          "userId": 4,
+          "userFirstName": "Sarah",
+          "userLastName": "Thompson",
+          "entryDate": "2022-02-01 18:12:24",
+          "comment": "That couch is beautiful! It is just what we are looking for.",
+          "status": "pending"
+        },
+        {
+          "userId": 6,
+          "userFirstName": "Joyce",
+          "userLastName": "Chambers",
+          "entryDate": "2022-02-02 08:27:24",
+          "comment": "We just moved to town and NEED furniture.",
+          "status": "winner not notified"
+        },
+        {
+          "userId": 3,
+          "userFirstName": "Ben",
+          "userLastName": "Farmer",
+          "entryDate": "2022-02-02 09:12:24",
+          "comment": "This would be perfect in our living room.",
+          "status": "pending"
+        }
+      ],
+      "winnerContactedMeessageID": null
+    },
+    {
+      "id": 2,
+      "name": "Desk Chair",
+      "categoryName": "Furniture",
+      "sellerId": 1,
+      "sellerFirstName": "Stephanie",
+      "sellerLastName": "Ames", 
+      "description": "This desk chair is perfect for a student to work at.",
+      "listDate": "2022-02-05 09:28:15",
+      "imageUrl": "https://cdn3.volusion.com/fpcr2.eagm2/v/vspfiles/photos/Used-Aeron-Chairs-2.jpg?v-cache=1544784442",
+      "lotteryEntries": [
+        {
+          "userId": 4,
+          "userFirstName": "Sarah",
+          "userLastName": "Thompson",
+          "entryDate": "2022-02-07 18:12:24",
+          "comment": "I love the chair.",
+          "status": "winner not contacted"
+        }
+      ],
+      "winnerContactedMeessageID": null
+    },
+    {
+      "id": 3,
+      "name": "Dining room table",
+      "categoryName": "Furniture",
+      "sellerId": 1,
+      "sellerFirstName": "Matt",
+      "sellerLastName": "Perkins", 
+      "description": "This dining room table comfortably sits 12 people.",
+      "listDate": "2022-02-07 08:17:24",
+      "imageUrl": "https://i.pinimg.com/originals/08/66/39/0866394ff8fd4c7bb4fc6d216a492daf.jpg",
+      "lotteryEntries": [
+        {
+          "userId": 6,
+          "userFirstName": "Joyce",
+          "userLastName": "Chambers",
+          "entryDate": "2022-02-11 04:42:24",
+          "comment": "We have been eating on a cardboard box.",
+          "status": "pending"
+        },
+        {
+          "userId": 7,
+          "userFirstName": "Maureen",
+          "userLastName": "O'Neil",
+          "entryDate": "2022-02-12 13:12:52",
+          "comment": "I would love this table.",
+          "status": "winner not contacted"
+        }
+      ],
+      "winnerContactedMeessageID": null
+    },
+    {
+      "id": 4,
+      "name": "TV",
+      "sellerId": 4,
+      "sellerFirstName": "Sarah",
+      "sellerLastName": "Thompson", 
+      "categoryName": "Electronics",
+      "description": "47 inch Samsung HDTV.",
+      "listDate": "2022-02-06 15:03:07",
+      "lotteryEntries": []
+    },
+    {
+      "id": 5,
+      "name": "Harry Potter & the Sorcerer's Stone",
+      "sellerId": 5,
+      "sellerFirstName": "Derek",
+      "sellerLastName": "Walters", 
+      "categoryName": "Books",
+      "description": "Brand new Harry Potter book.",
+      "listDate": "2022-02-08 18:13:07",
+      "lotteryEntries": [
+        {
+          "userId": 1,
+          "userFirstName": "Matt",
+          "userLastName": "Perkins",
+          "entryDate": "2022-02-9 17:53:24",
+          "comment": "I've been dying to read Harry Potter.",
+          "status": "pending"
+        }
+      ],
+      "winnerContactedMeessageID": null
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Matt",
+      "lastName": "Perkins"
+    },
+    {
+      "id": 2,
+      "firstName": "Stephanie",
+      "lastName": "Ames"
+    },
+    {
+      "id": 3,
+      "firstName": "Ben",
+      "lastName": "Farmer"
+    },
+    {
+      "id": 4,
+      "firstName": "Sarah",
+      "lastName": "Thompson"
+    },
+    {
+      "id": 5,
+      "firstName": "Derek",
+      "lastName": "Walters"
+    },
+    {
+      "id": 6,
+      "firstName": "Joyce",
+      "lastName": "Chambers"
+    },
+    {
+      "id": 7,
+      "firstName": "Maureen",
+      "lastName": "O'Neal"
+    },
+    {
+      "id": 8,
+      "firstName": "Diego",
+      "lastName": "Salazar"
+    },
+    {
+      "id": 9,
+      "firstName": "Catherine",
+      "lastName": "Hendricks"
+    }
+  ],
+  "messages": [
+    {
+    "id": 1, 
+    "senderUserId": 1,
+    "senderFirstName": "Matt", 
+    "senderLastName": "Perkins", 
+    "recipientUserID": null,
+    "recipientFirstName": null, 
+    "recipientLastName": null,
+    "itemId": 2,
+    "messageSentDate": "2022-02-08 14:23:17"
+    }
+  ]
+}
