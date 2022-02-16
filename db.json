@@ -23,7 +23,7 @@
       "categoryName": "Furniture",
       "sellerId": 1,
       "sellerFirstName": "Matt",
-      "sellerLastName": "Perkins", 
+      "sellerLastName": "Perkins",
       "description": "We are getting a brand new couch and are looking for a good home for our old couch.",
       "listDate": "2022-02-01 16:15:14",
       "imageUrl": "https://az827626.vo.msecnd.net/cdn/buysell/images/thumbnail/buysell_2021-09-24-05-00-41-998_761.jpg",
@@ -53,7 +53,7 @@
           "status": "pending"
         }
       ],
-      "winnerContactedMeessageID": null
+      "winnerContactedMessageId": 2
     },
     {
       "id": 2,
@@ -61,7 +61,7 @@
       "categoryName": "Furniture",
       "sellerId": 1,
       "sellerFirstName": "Stephanie",
-      "sellerLastName": "Ames", 
+      "sellerLastName": "Ames",
       "description": "This desk chair is perfect for a student to work at.",
       "listDate": "2022-02-05 09:28:15",
       "imageUrl": "https://cdn3.volusion.com/fpcr2.eagm2/v/vspfiles/photos/Used-Aeron-Chairs-2.jpg?v-cache=1544784442",
@@ -75,7 +75,7 @@
           "status": "winner not contacted"
         }
       ],
-      "winnerContactedMeessageID": null
+      "winnerContactedMessageId": null
     },
     {
       "id": 3,
@@ -83,7 +83,7 @@
       "categoryName": "Furniture",
       "sellerId": 1,
       "sellerFirstName": "Matt",
-      "sellerLastName": "Perkins", 
+      "sellerLastName": "Perkins",
       "description": "This dining room table comfortably sits 12 people.",
       "listDate": "2022-02-07 08:17:24",
       "imageUrl": "https://i.pinimg.com/originals/08/66/39/0866394ff8fd4c7bb4fc6d216a492daf.jpg",
@@ -105,14 +105,14 @@
           "status": "winner not contacted"
         }
       ],
-      "winnerContactedMeessageID": null
+      "winnerContactedMessageId": null
     },
     {
       "id": 4,
       "name": "TV",
       "sellerId": 4,
       "sellerFirstName": "Sarah",
-      "sellerLastName": "Thompson", 
+      "sellerLastName": "Thompson",
       "categoryName": "Electronics",
       "description": "47 inch Samsung HDTV.",
       "listDate": "2022-02-06 15:03:07",
@@ -123,7 +123,7 @@
       "name": "Harry Potter & the Sorcerer's Stone",
       "sellerId": 5,
       "sellerFirstName": "Derek",
-      "sellerLastName": "Walters", 
+      "sellerLastName": "Walters",
       "categoryName": "Books",
       "description": "Brand new Harry Potter book.",
       "listDate": "2022-02-08 18:13:07",
@@ -137,7 +137,7 @@
           "status": "pending"
         }
       ],
-      "winnerContactedMeessageID": null
+      "winnerContactedMessageId": null
     }
   ],
   "users": [
@@ -189,15 +189,86 @@
   ],
   "messages": [
     {
-    "id": 1, 
-    "senderUserId": 1,
-    "senderFirstName": "Matt", 
-    "senderLastName": "Perkins", 
-    "recipientUserID": null,
-    "recipientFirstName": null, 
-    "recipientLastName": null,
-    "itemId": 2,
-    "messageSentDate": "2022-02-08 14:23:17"
+      "id": 1,
+      "senderUserId": 1,
+      "senderFirstName": "Matt",
+      "senderLastName": "Perkins",
+      "recipientUserId": null,
+      "recipientFirstName": null,
+      "recipientLastName": null,
+      "itemId": 2,
+      "messageContent": "This is beautiful",
+      "messageSentDate": "2022-02-08 14:23:17"
+    },
+    {
+      "id": 2,
+      "senderUserId": 1,
+      "senderFirstName": "Matt",
+      "senderLastName": "Perkins",
+      "recipientUserId": 6,
+      "recipientFirstName": "Joyce",
+      "recipientLastName": "Chambers",
+      "itemId": 1,
+      "messageContent": "Hi Joyce. You have been selected to receive my Couch. I live at 123 Main Street. Can you come after 4:00 PM to pick it up?",
+      "messageSentDate": "2022-02-16 09:50:27.393Z"
+    },
+    {
+      "id": 3,
+      "senderUserId": 6,
+      "senderFirstName": "Joyce",
+      "senderLastName": "Chambers",
+      "recipientUserId": 1,
+      "recipientFirstName": "Matt",
+      "recipientLastName": "Perkins",
+      "itemId": 1,
+      "messageContent": "Yes I can. Thank you.",
+      "messageSentDate": "2022-02-16 10:50:27.393Z"
+    },
+    {
+      "id": 4,
+      "senderUserId": 1,
+      "senderFirstName": "Matt",
+      "senderLastName": "Perkins",
+      "recipientUserId": 6,
+      "recipientFirstName": "Joyce",
+      "recipientLastName": "Chambers",
+      "itemId": 1,
+      "messageContent": "Great! See you then.",
+      "messageSentDate": "2022-02-16 11:50:27.393Z"
+    },
+    {
+      "id": 5,
+      "senderUserId": 6,
+      "senderFirstName": "Joyce",
+      "senderLastName": "Chambers",
+      "recipientUserId": 1,
+      "recipientFirstName": "Matt",
+      "recipientLastName": "Perkins",
+      "itemId": 1,
+      "messageContent": "Thank you so much!",
+      "messageSentDate": "2022-02-16 12:50:27.393Z"
+    },
+    {
+      "id": 6,
+      "senderFirstName": "Matt",
+      "senderLastName": "Perkins",
+      "recipientUserId": 6,
+      "recipientFirstName": "Joyce",
+      "recipientLastName": "Chambers",
+      "messageContent": "Will you need help moving it?",
+      "messageSentDate": "2022-02-16 17:33:02.149Z"
+    },
+    {
+      "id": 7,
+      "senderUserId": 1,
+      "senderFirstName": "Matt",
+      "senderLastName": "Perkins",
+      "recipientUserId": 6,
+      "recipientFirstName": "Joyce",
+      "recipientLastName": "Chambers",
+      "itemId": 1,
+      "messageContent": "Will you need help moving it?",
+      "messageSentDate": "2022-02-16 17:49:41.978Z"
     }
   ]
 }

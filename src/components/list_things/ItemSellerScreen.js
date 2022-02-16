@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ItemSellerScreen({ itemInfo, eligibleEntries, updateItems, createRecipientMessage }) {
+function ItemSellerScreen({ itemInfo, eligibleEntries, updateItems, createRecipientMessage, messages }) {
     const lotteryWinner = itemInfo.lotteryEntries.find((entry) => entry.status.includes("winner"));
 
     const [winnerMessage, setWinnerMessage] = useState(lotteryWinner ? `Hi ${lotteryWinner.userFirstName}. You have been selected to receive my ${itemInfo.name}. Here is the best way to get it...` : "");
@@ -36,15 +36,25 @@ function ItemSellerScreen({ itemInfo, eligibleEntries, updateItems, createRecipi
         )
     }
     else {
-        return (
-            <form onSubmit = {(event)=>handleSendMessageSubmit(event)}>
-                <label>Recipient Selection Message:</label>
-                <br />
-                <textarea value = {winnerMessage} onChange = {handleTextArea}/>
-                <br />
-                <button>Send Message</button>
-            </form>
-        )
+        if(!itemInfo.winnerContactedMessageId) {
+            return (
+                <form onSubmit = {(event)=>handleSendMessageSubmit(event)}>
+                    <label>Recipient Selection Message:</label>
+                    <br />
+                    <textarea value = {winnerMessage} onChange = {handleTextArea}/>
+                    <br />
+                    <button>Send Message</button>
+                </form>
+            )
+        }
+        else {
+            const winnerMessage = messages.find((message)=> message.id == itemInfo.winnerContactedMessageId);
+            return(
+            <div>
+                <strong>Message Sent:</strong>
+                <p>{winnerMessage.messageContent}</p>
+            </div>)
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/user";
 import ItemSellerScreen from "../list_things/ItemSellerScreen";
@@ -24,14 +24,14 @@ function LotteryEntry({ entry }) {
   )
 }
 
-function Item({ items, updateItems, createRecipientMessage }) {  
+function Item({ items, formatGivenDate, updateItems, createRecipientMessage, messages }) {  
   const userInfo = useContext(UserContext);
 
   const params = useParams();
 
-  const itemID = parseInt(params.itemId, 10);
+  const itemId = parseInt(params.itemId, 10);
 
-  const itemInfo = items.find((item) => item.id === itemID) 
+  const itemInfo = items.find((item) => item.id === itemId) 
 
   if(itemInfo) {
     const listDate = new Date(itemInfo.listDate);
@@ -39,8 +39,8 @@ function Item({ items, updateItems, createRecipientMessage }) {
     const lotteryTime = listTime + (60 * 60 * 24 * 1000);
     const lotteryDate = new Date(lotteryTime);
 
-    const formattedListDate = userInfo.formatGivenDate(listDate, 1);
-    const formattedLotteryDate = userInfo.formatGivenDate(lotteryDate, 1);
+    const formattedListDate = formatGivenDate(listDate, 1);
+    const formattedLotteryDate = formatGivenDate(lotteryDate, 1);
     
     const currentTime = new Date().getTime(); 
     const displayedEntries = itemInfo.lotteryEntries.filter((entry) => entry.status !== "withdrawn")  

@@ -98,3 +98,16 @@ textarea {
   width: 500px;
   height: 100px;
 }
+
+.message {
+  width: 500px;
+  margin: auto;
+}
+
+.userMessageSender {
+  color: green;
+}
+
+.userMessageRecipient {
+  color: red;
+}

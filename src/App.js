@@ -9,8 +9,10 @@ import CheckLottery from './components/find_things/CheckLottery';
 import ListItem from './components/list_things/ListItem';
 import MyCurrentListings from './components/list_things/MyCurrentListings';
 import MyPastListings from './components/list_things/MyPastListings';
+import MyMessages from './components/my_info/MyMessages';
 import Item from './components/items/Item';
 import { UserProvider } from './context/user';
+
 
 function App() {
 
@@ -50,9 +52,17 @@ function App() {
     }
     
     return displayedDate;
-}
+  }
 
-  function findMaxFieldID(currentValue, newValue) {
+  function convertDateToJSON(givenDate) {
+    const offset = givenDate.getTimezoneOffset();
+    
+    givenDate = new Date(givenDate.getTime() - (offset*60*1000));
+    
+    return givenDate.toISOString().split('T')[0] + " " + givenDate.toISOString().split('T')[1];
+  }
+
+  function findMaxFieldId(currentValue, newValue) {
     return Math.max(currentValue, newValue.id);
   }
 
@@ -75,8 +85,8 @@ function App() {
       }, [])
 
 
-  const maxItemID = items.reduce(findMaxFieldID, 0);
-  const maxMessageID = messages.reduce(findMaxFieldID, 0);
+  const maxItemId = items.reduce(findMaxFieldId, 0);
+  const maxMessageId = messages.reduce(findMaxFieldId, 0);
 
 
   function updateItems(itemToUpdate) {
@@ -99,25 +109,82 @@ function App() {
       })
   }
 
+  function postMessage(message) {
+    fetch("http://localhost:3001/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+        },
+      body: JSON.stringify(message)
+      })
+
+    const updatedMessages = [...messages, message];
+    setMessages(updatedMessages);
+  } 
+
   function createRecipientMessage(itemInfo, message, ) {
     
     const lotteryWinner = itemInfo.lotteryEntries.find((entry) => entry.status.includes("winner"));
 
     const newMessage = {
-      "id": (maxMessageID + 1), 
+      "id": (maxMessageId + 1), 
       "senderUserId": itemInfo.sellerId,
       "senderFirstName": itemInfo.sellerFirstName, 
       "senderLastName": itemInfo.sellerLastName, 
-      "recipientUserID": lotteryWinner.userId,
+      "recipientUserId": lotteryWinner.userId,
       "recipientFirstName": lotteryWinner.userFirstName, 
       "recipientLastName": lotteryWinner.userLastName,
       "itemId": itemInfo.id,
-      "messageSentDate": new Date()
+      "messageContent": message, 
+      "messageSentDate": convertDateToJSON(new Date())
     }
 
-    console.log(newMessage);
+    
+
+    postMessage(newMessage);
+
+    //Add the message to the item info:
+    const updatedItemInfo = {...itemInfo};
+    updatedItemInfo.winnerContactedMessageId = (maxMessageId + 1);
+
+    const updatedItems = items.map((item) => {
+      if(item.id == itemInfo.id) {
+        return updatedItemInfo;
+      }
+      else {
+        return item;
+      }
+    })
+
+    fetch(`http://localhost:3001/items/${itemInfo.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+        },
+      body: JSON.stringify(updatedItemInfo)
+      })
+
+    setItems(updatedItems);
   }
-      
+
+  function generateResponseMessage(message, responseText) {
+    const newMessage = {
+      "id": (maxMessageId + 1), 
+      "senderUserId": message.recipientUserId,
+      "senderFirstName": message.recipientFirstName, 
+      "senderLastName": message.recipientLastName, 
+      "recipientUserId": message.senderUserId,
+      "recipientFirstName": message.senderFirstName, 
+      "recipientLastName": message.senderLastName,
+      "itemId": message.itemId,
+      "messageContent": responseText, 
+      "messageSentDate": convertDateToJSON(new Date())
+    }
+    console.log(newMessage);
+    debugger;
+    postMessage(newMessage);
+  }
+
   return (
   <UserProvider>
     <BrowserRouter>
@@ -152,7 +219,11 @@ function App() {
           </Route>
 
           <Route path = "/showItem/:itemId">
-            <Item items = {items} updateItems = {updateItems} createRecipientMessage = {createRecipientMessage} />
+            <Item items = {items} formatGivenDate = {formatGivenDate} updateItems = {updateItems} createRecipientMessage = {createRecipientMessage} messages = {messages}/>
+          </Route>
+
+          <Route path = "/myMessages">
+            <MyMessages messages = {messages} items = {items} formatGivenDate = {formatGivenDate} generateResponseMessage = {generateResponseMessage} />
           </Route>
 
           <Route path = "/">
