@@ -77,14 +77,21 @@ function App() {
 
       .then(() =>fetch("http://localhost:3001/items"))
       .then((r)=>r.json())
-      .then((itemList) => setItems(itemList)) 
+      .then((itemList) => setItems(itemList.sort((a, b)=> {
+        if(a.name < b.name){
+          return 1;
+          }
+        else {
+          return -1;
+        }
+      }))) 
 
       .then(() =>fetch("http://localhost:3001/messages"))
       .then((r)=>r.json())
       .then((messageList) => setMessages(messageList))
       }, [])
 
-
+console.log("Hello");
   const maxItemId = items.reduce(findMaxFieldId, 0);
   const maxMessageId = messages.reduce(findMaxFieldId, 0);
 
