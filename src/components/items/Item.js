@@ -30,10 +30,10 @@ function Item({ items, formatGivenDate, updateItems, createRecipientMessage, mes
   const params = useParams();
 
   const itemId = parseInt(params.itemId, 10);
-
+ 
   const itemInfo = items.find((item) => item.id === itemId) 
-
-  if(itemInfo) {
+  
+  if(itemInfo) {    
     const listDate = new Date(itemInfo.listDate);
     const listTime = listDate.getTime();
     const lotteryTime = listTime + (60 * 60 * 24 * 1000);
@@ -44,7 +44,7 @@ function Item({ items, formatGivenDate, updateItems, createRecipientMessage, mes
     
     const currentTime = new Date().getTime(); 
     const displayedEntries = itemInfo.lotteryEntries.filter((entry) => entry.status !== "withdrawn")  
-    
+  
     return (
         <div className = "itemDiv">
           <h1>{itemInfo.name}</h1>
@@ -72,7 +72,7 @@ function Item({ items, formatGivenDate, updateItems, createRecipientMessage, mes
             <h2>Lottery</h2>
             {displayedEntries ? displayedEntries.map((entry) => <LotteryEntry key = {entry.userId} entry = {entry} />) : <strong>None</strong>}
           </div>
-          {(userInfo.id === itemInfo.sellerId && currentTime >= lotteryTime) ? <ItemSellerScreen itemInfo = {itemInfo} eligibleEntries = {displayedEntries} updateItems = {updateItems} createRecipientMessage = {createRecipientMessage} /> : null}
+          {(userInfo.id === itemInfo.sellerId && currentTime >= lotteryTime) ? <ItemSellerScreen itemInfo = {itemInfo} eligibleEntries = {displayedEntries} updateItems = {updateItems} createRecipientMessage = {createRecipientMessage} messages = {messages} /> : null}
         </div>
       )
     }

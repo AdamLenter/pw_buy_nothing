@@ -36,6 +36,7 @@ function ItemSellerScreen({ itemInfo, eligibleEntries, updateItems, createRecipi
         )
     }
     else {
+        
         if(!itemInfo.winnerContactedMessageId) {
             return (
                 <form onSubmit = {(event)=>handleSendMessageSubmit(event)}>
@@ -48,11 +49,11 @@ function ItemSellerScreen({ itemInfo, eligibleEntries, updateItems, createRecipi
             )
         }
         else {
-            const winnerMessage = messages.find((message)=> message.id == itemInfo.winnerContactedMessageId);
+            
             return(
             <div>
                 <strong>Message Sent:</strong>
-                <p>{winnerMessage.messageContent}</p>
+                <p>{winnerMessage}</p>
             </div>)
         }
     }

@@ -180,11 +180,9 @@ function App() {
       "messageContent": responseText, 
       "messageSentDate": convertDateToJSON(new Date())
     }
-    console.log(newMessage);
-    debugger;
     postMessage(newMessage);
   }
-
+console.log(messages);
   return (
   <UserProvider>
     <BrowserRouter>

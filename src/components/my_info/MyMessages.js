@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../context/user";
+import { Link } from "react-router-dom";
 
 function MyMessages({ messages, items, formatGivenDate, generateResponseMessage }) {
   const [displayedMessageId, setDisplayedMessage] = useState(null);
@@ -49,7 +50,8 @@ function MyMessages({ messages, items, formatGivenDate, generateResponseMessage 
           {message.itemId ? (
             <>
               <span>
-                  <strong>In re: {items.find((item) => item.id === message.itemId).name}</strong>
+                  <strong>In re: </strong>
+                  <Link to = {`/showItem/${message.itemId}`}>{items.find((item) => item.id === message.itemId).name}</Link>
               </span>
               <br />
             </>) : null}
