@@ -59,7 +59,7 @@
       "id": 2,
       "name": "Desk Chair",
       "categoryName": "Furniture",
-      "sellerId": 1,
+      "sellerId": 2,
       "sellerFirstName": "Stephanie",
       "sellerLastName": "Ames",
       "description": "This desk chair is perfect for a student to work at.",
@@ -73,9 +73,17 @@
           "entryDate": "2022-02-07 18:12:24",
           "comment": "I love the chair.",
           "status": "pending"
+        },
+        {
+          "userId": 1,
+          "userFirstName": "Matt",
+          "userLastName": "Perkins",
+          "entryDate": "2022-02-17 15:24:03.156Z",
+          "comment": "I could see myself sitting on that!",
+          "status": "winner contacted"
         }
       ],
-      "winnerContactedMessageId": null
+      "winnerContactedMessageId": 3
     },
     {
       "id": 3,
@@ -211,6 +219,18 @@
       "itemId": 1,
       "messageContent": "Hi Sarah. You have been selected to receive my Couch. Here is the best way to get it...",
       "messageSentDate": "2022-02-17 11:30:01.808Z"
+    },
+    {
+      "id": 3,
+      "senderUserId": 2,
+      "senderFirstName": "Stephanie",
+      "senderLastName": "Ames",
+      "recipientUserId": 1,
+      "recipientFirstName": "Matt",
+      "recipientLastName": "Perkins",
+      "itemId": 2,
+      "messageContent": "Hi Matt. You have been selected to receive my Desk Chair. Can you pick it up on Sunday?",
+      "messageSentDate": "2022-02-17 15:41:29.069Z"
     }
   ]
 }

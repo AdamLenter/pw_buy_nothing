@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/user";
+import EnterLotteryScreen from "../find_things/EnterLotteryScreen";
 import ItemSellerScreen from "../list_things/ItemSellerScreen";
 
 function WinnerMessage() {
@@ -24,7 +25,7 @@ function LotteryEntry({ entry }) {
   )
 }
 
-function Item({ items, formatGivenDate, updateItems, createRecipientMessage, messages }) {  
+function Item({ items, formatGivenDate, updateItems, createRecipientMessage, messages, enterLottery }) {  
   const userInfo = useContext(UserContext);
 
   const params = useParams();
@@ -58,8 +59,7 @@ function Item({ items, formatGivenDate, updateItems, createRecipientMessage, mes
                 <strong>Description</strong>: {itemInfo.description}
                 <br />
                 <br />
-                <strong></strong>
-                <br />
+                <strong>Seller</strong>: {itemInfo.sellerFirstName} {itemInfo.sellerLastName} 
                 <br />
                 <strong>Listing date</strong>: {formattedListDate}
                 <br />
@@ -73,6 +73,10 @@ function Item({ items, formatGivenDate, updateItems, createRecipientMessage, mes
             {displayedEntries ? displayedEntries.map((entry) => <LotteryEntry key = {entry.userId} entry = {entry} />) : <strong>None</strong>}
           </div>
           {(userInfo.id === itemInfo.sellerId && currentTime >= lotteryTime) ? <ItemSellerScreen itemInfo = {itemInfo} eligibleEntries = {displayedEntries} updateItems = {updateItems} createRecipientMessage = {createRecipientMessage} messages = {messages} /> : null}
+
+          {(userInfo.id !== itemInfo.sellerId) ? <EnterLotteryScreen itemInfo = {itemInfo} enterLottery = {enterLottery} /> : null}
+
+
         </div>
       )
     }

@@ -109,6 +109,23 @@ function App() {
       })
   }
 
+  function enterLottery(itemInfo, userInfo, entryComment) {
+    const newLotteryEntry = {
+      "userId": userInfo.id,
+      "userFirstName": userInfo.firstName,
+      "userLastName": userInfo.lastName,
+      "entryDate": convertDateToJSON(new Date()), 
+      "comment": entryComment,
+      "status": "pending"
+    }
+
+    const updatedLotteryEntries = [...itemInfo.lotteryEntries, newLotteryEntry];
+
+    itemInfo.lotteryEntries = updatedLotteryEntries;
+
+    updateItems(itemInfo);
+  }
+
   function postMessage(message) {
     fetch("http://localhost:3001/messages", {
       method: "POST",
@@ -124,7 +141,8 @@ function App() {
 
   function createRecipientMessage(itemInfo, message, ) {
     
-    const lotteryWinner = itemInfo.lotteryEntries.find((entry) => entry.status.includes("winner"));
+    let lotteryWinner = itemInfo.lotteryEntries.find((entry) => entry.status.includes("winner"));
+    lotteryWinner.status = "winner contacted";
 
     const newMessage = {
       "id": (maxMessageId + 1), 
@@ -139,32 +157,23 @@ function App() {
       "messageSentDate": convertDateToJSON(new Date())
     }
 
-    
-
     postMessage(newMessage);
 
     //Add the message to the item info:
     const updatedItemInfo = {...itemInfo};
+    const updatedLotteryEntries = itemInfo.lotteryEntries;
     updatedItemInfo.winnerContactedMessageId = (maxMessageId + 1);
 
-    const updatedItems = items.map((item) => {
-      if(item.id == itemInfo.id) {
-        return updatedItemInfo;
+    updatedItemInfo.lotteryEntries = updatedLotteryEntries.map((entry)=> {
+      if(entry.userId === lotteryWinner.userId && entry.status.includes("winner")) {
+        return lotteryWinner;
       }
       else {
-        return item;
+        return entry;
       }
     })
 
-    fetch(`http://localhost:3001/items/${itemInfo.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json"
-        },
-      body: JSON.stringify(updatedItemInfo)
-      })
-
-    setItems(updatedItems);
+    updateItems(updatedItemInfo);
   }
 
   function generateResponseMessage(message, responseText) {
@@ -182,7 +191,7 @@ function App() {
     }
     postMessage(newMessage);
   }
-console.log(messages);
+
   return (
   <UserProvider>
     <BrowserRouter>
@@ -217,7 +226,7 @@ console.log(messages);
           </Route>
 
           <Route path = "/showItem/:itemId">
-            <Item items = {items} formatGivenDate = {formatGivenDate} updateItems = {updateItems} createRecipientMessage = {createRecipientMessage} messages = {messages}/>
+            <Item items = {items} formatGivenDate = {formatGivenDate} updateItems = {updateItems} createRecipientMessage = {createRecipientMessage} messages = {messages} enterLottery = {enterLottery} />
           </Route>
 
           <Route path = "/myMessages">
