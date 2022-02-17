@@ -18,7 +18,11 @@ function NavBar() {
 
               <NavDropdown title="Find Things" id="collapsible-nav-dropdown">
                 <LinkContainer to="/browseCategories">
-                  <NavDropdown.Item>Browse Listings</NavDropdown.Item>
+                  <NavDropdown.Item>Browse Listings by Category</NavDropdown.Item>
+                </LinkContainer>
+
+                <LinkContainer to="/browseDate">
+                  <NavDropdown.Item>Browse Most Recent Listings</NavDropdown.Item>
                 </LinkContainer>
 
                 <LinkContainer to="/searchListings">

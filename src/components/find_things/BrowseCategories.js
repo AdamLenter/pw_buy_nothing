@@ -29,7 +29,7 @@ function BrowseCategories( {categories} ) {
 
     return (
       <div> 
-        <h1 className = "pageTitle">Browse Listings</h1>
+        <h1 className = "pageTitle">Browse Listings by Category</h1>
         <div className = "pageDiv">
           {displayedCategories.map((category) => <Category key = {category.id} category = {category} />)}
         </div>

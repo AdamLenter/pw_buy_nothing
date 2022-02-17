@@ -59,11 +59,14 @@ function Item({ items, formatGivenDate, updateItems, createRecipientMessage, mes
                 <strong>Description</strong>: {itemInfo.description}
                 <br />
                 <br />
-                <strong>Seller</strong>: {itemInfo.sellerFirstName} {itemInfo.sellerLastName} 
+               
+                <strong>Status</strong>: {itemInfo.status}
                 <br />
                 <strong>Listing date</strong>: {formattedListDate}
                 <br />
                 <strong>Selection on or after</strong>: {formattedLotteryDate}
+                <br />
+                <strong>Seller</strong>: {itemInfo.sellerFirstName} {itemInfo.sellerLastName}        
               </p>
             </div>
           </div>

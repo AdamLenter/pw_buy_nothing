@@ -111,3 +111,8 @@ textarea {
 .userMessageRecipient {
   color: red;
 }
+
+.activeInactiveForm {
+  width: 400px;
+  margin: auto;
+}

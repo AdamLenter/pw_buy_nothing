@@ -21,6 +21,7 @@
       "id": 1,
       "name": "Couch",
       "categoryName": "Furniture",
+      "status": "Active", 
       "sellerId": 1,
       "sellerFirstName": "Matt",
       "sellerLastName": "Perkins",
@@ -53,12 +54,13 @@
           "status": "pending"
         }
       ],
-      "winnerContactedMessageId": 2
+      "winnerContactedMessageId": null
     },
     {
       "id": 2,
       "name": "Desk Chair",
       "categoryName": "Furniture",
+      "status": "Inactive", 
       "sellerId": 2,
       "sellerFirstName": "Stephanie",
       "sellerLastName": "Ames",
@@ -89,6 +91,7 @@
       "id": 3,
       "name": "Dining room table",
       "categoryName": "Furniture",
+      "status": "Active", 
       "sellerId": 1,
       "sellerFirstName": "Matt",
       "sellerLastName": "Perkins",
@@ -118,6 +121,7 @@
     {
       "id": 4,
       "name": "TV",
+      "status": "Active", 
       "sellerId": 4,
       "sellerFirstName": "Sarah",
       "sellerLastName": "Thompson",
@@ -133,6 +137,7 @@
       "sellerFirstName": "Derek",
       "sellerLastName": "Walters",
       "categoryName": "Books",
+      "status": "Active", 
       "description": "Brand new Harry Potter book.",
       "listDate": "2022-02-08 18:13:07",
       "lotteryEntries": [
