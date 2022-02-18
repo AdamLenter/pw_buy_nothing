@@ -5,7 +5,7 @@ const UserContext = React.createContext();
 function UserProvider({ children }) {
 
     const currentUser = {
-        "id": 2, 
+        "id": 1, 
         "firstName": "Stephanie", 
         "lastName": "Ames"
     }

@@ -228,7 +228,7 @@ function App() {
           </Route>
           
           <Route path = "/checkLottery">
-            <CheckLottery />
+            <CheckLottery items = {items} />
           </Route>
 
           <Route path = "/listItem">
