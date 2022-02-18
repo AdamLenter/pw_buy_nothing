@@ -21,12 +21,8 @@ function NavBar() {
                   <NavDropdown.Item>Browse Listings by Category</NavDropdown.Item>
                 </LinkContainer>
 
-                <LinkContainer to="/browseDate">
-                  <NavDropdown.Item>Browse Most Recent Listings</NavDropdown.Item>
-                </LinkContainer>
-
-                <LinkContainer to="/searchListings">
-                  <NavDropdown.Item>Search Listings</NavDropdown.Item>
+                <LinkContainer to="/browseByDate">
+                  <NavDropdown.Item>Browse Listings by Date</NavDropdown.Item>
                 </LinkContainer>
                 
                 <LinkContainer to="/checkLottery">

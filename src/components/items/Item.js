@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/user";
 import EnterLotteryScreen from "../find_things/EnterLotteryScreen";
@@ -25,7 +25,7 @@ function LotteryEntry({ entry }) {
   )
 }
 
-function Item({ items, formatGivenDate, updateItems, createRecipientMessage, messages, enterLottery }) {  
+function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRecipientMessage, messages, enterLottery }) {  
   const userInfo = useContext(UserContext);
 
   const params = useParams();
@@ -44,8 +44,13 @@ function Item({ items, formatGivenDate, updateItems, createRecipientMessage, mes
     const formattedLotteryDate = formatGivenDate(lotteryDate, 1);
     
     const currentTime = new Date().getTime(); 
-    const displayedEntries = itemInfo.lotteryEntries.filter((entry) => entry.status !== "withdrawn")  
+    const displayedEntries = itemInfo.lotteryEntries.filter((entry) => entry.status !== "withdrawn")
+    
+    
   
+    function toggleActiveInactive() {
+      changeItemStatus(itemInfo);
+    }
     return (
         <div className = "itemDiv">
           <h1>{itemInfo.name}</h1>
@@ -66,7 +71,13 @@ function Item({ items, formatGivenDate, updateItems, createRecipientMessage, mes
                 <br />
                 <strong>Selection on or after</strong>: {formattedLotteryDate}
                 <br />
-                <strong>Seller</strong>: {itemInfo.sellerFirstName} {itemInfo.sellerLastName}        
+                <strong>Seller</strong>: {itemInfo.sellerFirstName} {itemInfo.sellerLastName}
+                
+                {userInfo.id === itemInfo.sellerId ? (
+                  <>
+                    <br />
+                    <button onClick={toggleActiveInactive}>Make {itemInfo.status === "Active" ? "Inactive" : "Active"}</button>
+                  </> ) : null}
               </p>
             </div>
           </div>

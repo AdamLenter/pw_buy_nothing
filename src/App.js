@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
-import SearchListings from './components/SearchListings';
+
 import BrowseCategories from './components/find_things/BrowseCategories';
 import BrowseCategory from './components/find_things/BrowseCategory';
+import BrowseByDate from './components/find_things/BrowseByDate';
+
 import CheckLottery from './components/find_things/CheckLottery';
 import ListItem from './components/list_things/ListItem';
 import MyCurrentListings from './components/list_things/MyCurrentListings';
@@ -91,7 +93,6 @@ function App() {
       .then((messageList) => setMessages(messageList))
       }, [])
 
-console.log("Hello");
   const maxItemId = items.reduce(findMaxFieldId, 0);
   const maxMessageId = messages.reduce(findMaxFieldId, 0);
 
@@ -114,6 +115,16 @@ console.log("Hello");
         },
       body: JSON.stringify(itemToUpdate)
       })
+  }
+
+  function changeItemStatus(itemToChange) {
+    if(itemToChange.status === "Active") {
+      itemToChange.status = "Inactive";
+    }
+    else {
+      itemToChange.status = "Active";
+    }
+    updateItems(itemToChange);
   }
 
   function enterLottery(itemInfo, userInfo, entryComment) {
@@ -211,11 +222,11 @@ console.log("Hello");
           <Route path = "/browseCategory/:categoryName">
             <BrowseCategory categories = {categories} items = {items} />
           </Route>
-
-          <Route path = "/searchListings">
-            <SearchListings />
+          
+          <Route path = "/browseByDate/">
+            <BrowseByDate items = {items} />
           </Route>
-
+          
           <Route path = "/checkLottery">
             <CheckLottery />
           </Route>
@@ -233,7 +244,7 @@ console.log("Hello");
           </Route>
 
           <Route path = "/showItem/:itemId">
-            <Item items = {items} formatGivenDate = {formatGivenDate} updateItems = {updateItems} createRecipientMessage = {createRecipientMessage} messages = {messages} enterLottery = {enterLottery} />
+            <Item items = {items} formatGivenDate = {formatGivenDate} updateItems = {updateItems} changeItemStatus = {changeItemStatus} createRecipientMessage = {createRecipientMessage} messages = {messages} enterLottery = {enterLottery} />
           </Route>
 
           <Route path = "/myMessages">
