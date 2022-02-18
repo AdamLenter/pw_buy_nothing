@@ -35,12 +35,8 @@ function NavBar() {
                   <NavDropdown.Item>List Item</NavDropdown.Item>
                 </LinkContainer>
 
-                <LinkContainer to="/myCurrentListings">
-                  <NavDropdown.Item>Check Current Listings</NavDropdown.Item>
-                </LinkContainer>
-                
-                <LinkContainer to="/myPastListings">
-                  <NavDropdown.Item>View Past Listings</NavDropdown.Item>
+                <LinkContainer to="/myListings">
+                  <NavDropdown.Item>View My Listings</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
 

@@ -9,8 +9,7 @@ import BrowseByDate from './components/find_things/BrowseByDate';
 
 import CheckLottery from './components/find_things/CheckLottery';
 import ListItem from './components/list_things/ListItem';
-import MyCurrentListings from './components/list_things/MyCurrentListings';
-import MyPastListings from './components/list_things/MyPastListings';
+import MyListings from './components/list_things/MyListings';
 import MyMessages from './components/my_info/MyMessages';
 import Item from './components/items/Item';
 import { UserProvider } from './context/user';
@@ -235,12 +234,8 @@ function App() {
             <ListItem />
           </Route>
           
-          <Route path = "/myCurrentListings">
-            <MyCurrentListings />
-          </Route>
-
-          <Route path = "/myPastListings">
-            <MyPastListings />
+          <Route path = "/myListings">
+            <MyListings items = {items} />
           </Route>
 
           <Route path = "/showItem/:itemId">

@@ -6,8 +6,8 @@ function UserProvider({ children }) {
 
     const currentUser = {
         "id": 1, 
-        "firstName": "Stephanie", 
-        "lastName": "Ames"
+        "firstName": "Matt", 
+        "lastName": "Perkins"
     }
 
     
