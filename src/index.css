@@ -116,3 +116,7 @@ textarea {
   width: 400px;
   margin: auto;
 }
+
+label {
+  padding: 10px;
+}
