@@ -153,6 +153,43 @@
         }
       ],
       "winnerContactedMessageId": null
+    },
+    {
+      "id": 6,
+      "name": "The Cat in the Hat",
+      "status": "Active",
+      "sellerId": 1,
+      "sellerFirstName": "Matt",
+      "sellerLastName": "Perkins",
+      "categoryName": "Books",
+      "description": "Lightly used. In great condition.",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/91QY8HmMdzL.jpg",
+      "listDate": "2022-02-18 20:44:20.762Z",
+      "lotteryEntries": [
+        {
+          "userId": 4,
+          "userFirstName": "Sarah",
+          "userLastName": "Thompson",
+          "entryDate": "2022-02-20 16:16:50.537Z",
+          "comment": "My child would love this book!",
+          "status": "pending"
+        }
+      ],
+      "winnerContactedMessageId": null
+    },
+    {
+      "id": 7,
+      "name": "Learning Javascript",
+      "status": "Inactive",
+      "sellerId": 1,
+      "sellerFirstName": "Matt",
+      "sellerLastName": "Perkins",
+      "categoryName": "Books",
+      "description": "In very good condition.",
+      "imageUrl": "https://u-mercari-images.mercdn.net/photos/m38831668283_1.jpg",
+      "listDate": "2022-02-18 20:49:33.076Z",
+      "lotteryEntries": [],
+      "winnerContactedMessageId": null
     }
   ],
   "users": [
@@ -238,6 +275,42 @@
       "itemId": 2,
       "messageContent": "Hi Matt. You have been selected to receive my Desk Chair. Can you pick it up on Sunday?",
       "messageSentDate": "2022-02-17 15:41:29.069Z"
+    },
+    {
+      "id": 4,
+      "senderUserId": 4,
+      "senderFirstName": "Sarah",
+      "senderLastName": "Thompson",
+      "recipientUserId": 1,
+      "recipientFirstName": "Matt",
+      "recipientLastName": "Perkins",
+      "itemId": 6,
+      "messageContent": "I am curious about this book. What edition is it?",
+      "messageSentDate": "2022-02-21 15:05:49.173Z"
+    },
+    {
+      "id": 5,
+      "senderUserId": 4,
+      "senderFirstName": "Sarah",
+      "senderLastName": "Thompson",
+      "recipientUserId": 1,
+      "recipientFirstName": "Matt",
+      "recipientLastName": "Perkins",
+      "itemId": 6,
+      "messageContent": "Are there any ripped pages in the book?",
+      "messageSentDate": "2022-02-21 15:19:13.296Z"
+    },
+    {
+      "id": 6,
+      "senderUserId": 4,
+      "senderFirstName": "Sarah",
+      "senderLastName": "Thompson",
+      "recipientUserId": 1,
+      "recipientFirstName": "Matt",
+      "recipientLastName": "Perkins",
+      "itemId": 6,
+      "messageContent": "Do you have more than one copy?",
+      "messageSentDate": "2022-02-21 15:22:39.918Z"
     }
   ]
 }

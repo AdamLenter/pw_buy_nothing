@@ -25,7 +25,7 @@ function LotteryEntry({ entry }) {
   )
 }
 
-function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRecipientMessage, messages, enterLottery }) {  
+function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRecipientMessage, messages, enterLottery, sendSellerMessage }) {  
   const userInfo = useContext(UserContext);
 
   const params = useParams();
@@ -33,6 +33,10 @@ function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRec
   const itemId = parseInt(params.itemId, 10);
  
   const itemInfo = items.find((item) => item.id === itemId) 
+
+  const [sendSellerMessageFormPresent, setSendSellerMessageFormPresent] = useState(false);
+  const [sellerMessage, setSellerMessage] = useState("")
+  const [sellerMessageSent, setSellerMessageSent] = useState(false)
   
   if(itemInfo) {    
     const listDate = new Date(itemInfo.listDate);
@@ -46,11 +50,25 @@ function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRec
     const currentTime = new Date().getTime(); 
     const displayedEntries = itemInfo.lotteryEntries.filter((entry) => entry.status !== "withdrawn")
     
-    
-  
     function toggleActiveInactive() {
       changeItemStatus(itemInfo);
     }
+
+    function toggleSendSellerMessageFormPresent() {
+      setSendSellerMessageFormPresent(!sendSellerMessageFormPresent);
+    }
+    
+    function updateSellerMessage(event) {
+      setSellerMessage(event.target.value)
+    }
+
+    function sendMessage(event) {
+      event.preventDefault();
+      sendSellerMessage(userInfo, itemInfo, sellerMessage);
+      setSellerMessageSent(true);
+      setSellerMessage("");
+    }
+
     return (
         <div className = "itemDiv">
           <h1>{itemInfo.name}</h1>
@@ -72,17 +90,35 @@ function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRec
                 <strong>Selection on or after</strong>: {formattedLotteryDate}
                 <br />
                 <strong>Seller</strong>: {itemInfo.sellerFirstName} {itemInfo.sellerLastName}
-                
+                <br />
+
                 {userInfo.id === itemInfo.sellerId ? (
-                  <>
-                    <br />
-                    <button onClick={toggleActiveInactive}>Make {itemInfo.status === "Active" ? "Inactive" : "Active"}</button>
-                  </> ) : null}
+                    <button onClick={toggleActiveInactive}>Make {itemInfo.status === "Active" ? "Inactive" : "Active"}</button> ) : 
+                    (
+                    <a href = "#" onClick = {() => toggleSendSellerMessageFormPresent()}>{sendSellerMessageFormPresent ? "Cancel message" : "Send seller message"}</a>
+                    )
+                  }
               </p>
             </div>
           </div>
 
           <div className = "lotteryDiv">
+          {sendSellerMessageFormPresent && !sellerMessageSent ? (
+            <form onSubmit = {(event) => sendMessage(event)}>
+              <h2>Send Seller Message:</h2>
+              <textarea value = {sellerMessage} onChange = {(event)=>updateSellerMessage(event)}></textarea>
+              <button>Submit</button>  
+              <br />     
+            </form>
+          ) : null}
+
+          {sellerMessageSent ? (
+            <div>
+              <h2>Send Seller Message:</h2>
+              <h3>Message sent</h3>
+            </div>
+          ) : null}
+            <br />
             <h2>Lottery</h2>
             {displayedEntries ? displayedEntries.map((entry) => <LotteryEntry key = {entry.userId} entry = {entry} />) : <strong>None</strong>}
           </div>
@@ -95,7 +131,9 @@ function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRec
       )
     }
   else {
-    return(<div>Loading...</div>)
+    return(<div>
+      <h1>No item to display</h1>
+    </div>)
   }
   }
 

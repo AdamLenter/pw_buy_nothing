@@ -16,7 +16,6 @@ import { UserProvider } from './context/user';
 
 
 function App() {
-
   function formatGivenDate(givenDate, displayTimeYes1No0) {
     const dateArray = givenDate.toString().split(' ');
     let amPm;
@@ -26,7 +25,6 @@ function App() {
         displayedDate += dateArray[2];
     }
     else {
-
         displayedDate += dateArray[2].substr(1);
     }
 
@@ -95,6 +93,33 @@ function App() {
   const maxItemId = items.reduce(findMaxFieldId, 0);
   const maxMessageId = messages.reduce(findMaxFieldId, 0);
 
+  function addItem(userInfo, formData) {
+    const newItem = {
+      "id": (maxItemId + 1),
+      "name": formData.itemName,
+      "status": "Active",
+      "sellerId": userInfo.id,
+      "sellerFirstName": userInfo.firstName,
+      "sellerLastName": userInfo.lastName,
+      "categoryName": formData.categoryName,
+      "description": formData.description,
+      "imageUrl": formData.imageUrl,
+      "listDate": convertDateToJSON(new Date()),
+      "lotteryEntries": [], 
+      "winnerContactedMessageId": null
+    } 
+
+    const updatedItems = [newItem, ...items];
+    setItems(updatedItems);
+
+    fetch("http://localhost:3001/items", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+        },
+      body: JSON.stringify(newItem)
+      })
+  }
 
   function updateItems(itemToUpdate) {
     const updatedItems = items.map((item)=> {
@@ -209,6 +234,22 @@ function App() {
     postMessage(newMessage);
   }
 
+  function sendSellerMessage(userInfo, itemInfo, sellerMessage) {
+    const newMessage = {
+      "id": (maxMessageId + 1), 
+      "senderUserId": userInfo.id,
+      "senderFirstName": userInfo.firstName, 
+      "senderLastName": userInfo.lastName, 
+      "recipientUserId": itemInfo.sellerId,
+      "recipientFirstName": itemInfo.sellerFirstName, 
+      "recipientLastName": itemInfo.sellerLastName,
+      "itemId": itemInfo.id,
+      "messageContent": sellerMessage, 
+      "messageSentDate": convertDateToJSON(new Date())
+    }
+    postMessage(newMessage);
+  }
+
   return (
   <UserProvider>
     <BrowserRouter>
@@ -231,15 +272,15 @@ function App() {
           </Route>
 
           <Route path = "/listItem">
-            <ListItem />
+            <ListItem categories = {categories} addItem = {addItem} />
           </Route>
           
           <Route path = "/myListings">
-            <MyListings items = {items} />
+            <MyListings categories = {categories} items = {items} />
           </Route>
 
           <Route path = "/showItem/:itemId">
-            <Item items = {items} formatGivenDate = {formatGivenDate} updateItems = {updateItems} changeItemStatus = {changeItemStatus} createRecipientMessage = {createRecipientMessage} messages = {messages} enterLottery = {enterLottery} />
+            <Item items = {items} formatGivenDate = {formatGivenDate} updateItems = {updateItems} changeItemStatus = {changeItemStatus} createRecipientMessage = {createRecipientMessage} messages = {messages} enterLottery = {enterLottery} sendSellerMessage = {sendSellerMessage} />
           </Route>
 
           <Route path = "/myMessages">

@@ -31,7 +31,7 @@ function ItemSellerScreen({ itemInfo, eligibleEntries, updateItems, createRecipi
     if(!lotteryConducted) {
         return(
             <div>
-                <button className = "conductLottery" onClick = {conductLottery}>CONDUCT LOTTERY</button>
+                <button className = "conductLottery" onClick = {conductLottery} disabled = {itemInfo.lotteryEntries.length > 0 ? false : true}>CONDUCT LOTTERY</button>
             </div>
         )
     }

@@ -9,7 +9,7 @@ function CheckLottery({ items }) {
   
   return (
     <div>
-        <h1 className = "pageTitle">Check Lottery Status</h1>
+       <h1 className = "pageTitle">Check Lottery Status</h1> 
         <ItemPage items = {displayedItems} />
     </div>
     )
