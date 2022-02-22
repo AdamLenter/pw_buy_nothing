@@ -13,7 +13,7 @@ import MyListings from './components/list_things/MyListings';
 import MyMessages from './components/my_info/MyMessages';
 import Item from './components/items/Item';
 import { UserProvider } from './context/user';
-
+import logo from './buy_nothing_logo.jpg';
 
 function App() {
   function formatGivenDate(givenDate, displayTimeYes1No0) {
@@ -288,7 +288,9 @@ function App() {
           </Route>
 
           <Route path = "/">
-            <h1>Home</h1>
+            <div className = "itemDiv">
+              <img className = "logo" src = {logo} alt = "Buy Nothing Logo" />
+            </div>
           </Route>
           
         </Switch>

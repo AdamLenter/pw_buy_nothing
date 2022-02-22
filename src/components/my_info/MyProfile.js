@@ -3,7 +3,9 @@ import React from "react";
 
 function MyProfile() {
     return (
-      <div>My Profile</div>
+      <div>
+        <h1 className = "pageTitle">My Profile</h1>
+      </div>
       )
     }
 

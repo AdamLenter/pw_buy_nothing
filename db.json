@@ -190,6 +190,20 @@
       "listDate": "2022-02-18 20:49:33.076Z",
       "lotteryEntries": [],
       "winnerContactedMessageId": null
+    },
+    {
+      "id": 8,
+      "name": "PS5",
+      "status": "Active",
+      "sellerId": 4,
+      "sellerFirstName": "Sarah",
+      "sellerLastName": "Thompson",
+      "categoryName": "Electronics",
+      "description": "We have a PS5 that has barely been played.",
+      "imageUrl": "https://www.rgbswap.com/wp-content/uploads/2021/06/PXL_20210608_231830833-scaled.jpg",
+      "listDate": "2022-02-21 15:30:19.608Z",
+      "lotteryEntries": [],
+      "winnerContactedMessageId": null
     }
   ],
   "users": [
@@ -287,30 +301,6 @@
       "itemId": 6,
       "messageContent": "I am curious about this book. What edition is it?",
       "messageSentDate": "2022-02-21 15:05:49.173Z"
-    },
-    {
-      "id": 5,
-      "senderUserId": 4,
-      "senderFirstName": "Sarah",
-      "senderLastName": "Thompson",
-      "recipientUserId": 1,
-      "recipientFirstName": "Matt",
-      "recipientLastName": "Perkins",
-      "itemId": 6,
-      "messageContent": "Are there any ripped pages in the book?",
-      "messageSentDate": "2022-02-21 15:19:13.296Z"
-    },
-    {
-      "id": 6,
-      "senderUserId": 4,
-      "senderFirstName": "Sarah",
-      "senderLastName": "Thompson",
-      "recipientUserId": 1,
-      "recipientFirstName": "Matt",
-      "recipientLastName": "Perkins",
-      "itemId": 6,
-      "messageContent": "Do you have more than one copy?",
-      "messageSentDate": "2022-02-21 15:22:39.918Z"
     }
   ]
 }

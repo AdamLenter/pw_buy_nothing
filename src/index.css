@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+.logo {
+  height: 400px;
+  margin: auto;
+}
+
 .navBarHeading {
   color: White;
 }
