@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/user";
 import EnterLotteryScreen from "../find_things/EnterLotteryScreen";
 import ItemSellerScreen from "../list_things/ItemSellerScreen";
+import { Link } from "react-router-dom";
 
 function WinnerMessage() {
   return (
@@ -26,6 +27,7 @@ function LotteryEntry({ entry }) {
 }
 
 function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRecipientMessage, messages, enterLottery, sendSellerMessage }) {  
+
   const userInfo = useContext(UserContext);
 
   const params = useParams();
@@ -89,7 +91,9 @@ function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRec
                 <br />
                 <strong>Selection on or after</strong>: {formattedLotteryDate}
                 <br />
-                <strong>Seller</strong>: {itemInfo.sellerFirstName} {itemInfo.sellerLastName}
+                <strong>Seller</strong>: 
+                  <span> </span>
+                  <Link to = {`/showProfile/${itemInfo.sellerId}`}>{itemInfo.sellerFirstName} {itemInfo.sellerLastName}</Link>
                 <br />
 
                 {userInfo.id === itemInfo.sellerId ? (

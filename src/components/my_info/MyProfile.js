@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../context/user";
+import ProfileScreen from "../ProfileScreen";
 
 
-function MyProfile() {
+
+function MyProfile({ formatGivenDate }) {
+  const userInfo = useContext(UserContext);
+  
+  if(userInfo) {
     return (
-      <div>
-        <h1 className = "pageTitle">My Profile</h1>
-      </div>
-      )
+      <ProfileScreen profileUserInfo = {userInfo} formatGivenDate = {formatGivenDate} />
+    )
     }
+  else {
+    return(
+      <div>Loading...</div>
+    )
+  }
+}
 
 export default MyProfile;

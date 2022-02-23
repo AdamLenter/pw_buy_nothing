@@ -71,6 +71,13 @@ h1 {
   margin: auto;
 }
 
+.imageColumn {
+  float: left;
+  width: 50%;
+  margin: auto;
+  text-align: right;
+}  
+
 .listingColumn {
   float: left;
   width: 50%;
@@ -129,4 +136,8 @@ label {
 form {
   width: 500px;
   margin: auto;
+}
+
+.profilePicture {
+  height: 200px;
 }

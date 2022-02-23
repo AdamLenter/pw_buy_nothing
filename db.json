@@ -14,6 +14,11 @@
       "id": 3,
       "name": "Books",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjm0E5O9LJoDld__02UA-5fO7pno_K0FlUDebqLrAt38QWs3I&s"
+    },
+    {
+      "id": 4,
+      "name": "Kitchen",
+      "imageUrl": "https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/70892/frying-pan-clipart-xl.png"
     }
   ],
   "items": [
@@ -129,7 +134,24 @@
       "description": "47 inch Samsung HDTV.",
       "imageUrl": "https://u-mercari-images.mercdn.net/photos/m31168410943_1.jpg?width=1024&height=1024&format=pjpg&auto=webp&fit=crop&_=1608300947",
       "listDate": "2022-02-06 15:03:07",
-      "lotteryEntries": []
+      "lotteryEntries": [
+        {
+          "userId": 3,
+          "userFirstName": "Ben",
+          "userLastName": "Farmer",
+          "entryDate": "2022-02-23 10:43:28.726Z",
+          "comment": "I could use this TV in my office.",
+          "status": "pending"
+        },
+        {
+          "userId": 7,
+          "userFirstName": "Maureen",
+          "userLastName": "O'Neal",
+          "entryDate": "2022-02-23 14:38:40.968Z",
+          "comment": "I need a new tv for my bedroom",
+          "status": "pending"
+        }
+      ]
     },
     {
       "id": 5,
@@ -173,6 +195,14 @@
           "entryDate": "2022-02-20 16:16:50.537Z",
           "comment": "My child would love this book!",
           "status": "pending"
+        },
+        {
+          "userId": 7,
+          "userFirstName": "Maureen",
+          "userLastName": "O'Neal",
+          "entryDate": "2022-02-23 13:33:03.498Z",
+          "comment": "This is my favorite book.",
+          "status": "pending"
         }
       ],
       "winnerContactedMessageId": null
@@ -202,6 +232,126 @@
       "description": "We have a PS5 that has barely been played.",
       "imageUrl": "https://www.rgbswap.com/wp-content/uploads/2021/06/PXL_20210608_231830833-scaled.jpg",
       "listDate": "2022-02-21 15:30:19.608Z",
+      "lotteryEntries": [
+        {
+          "userId": 5,
+          "userFirstName": "Derek",
+          "userLastName": "Walters",
+          "entryDate": "2022-02-23 11:14:09.046Z",
+          "comment": "I would love that!",
+          "status": "pending"
+        }
+      ],
+      "winnerContactedMessageId": null
+    },
+    {
+      "id": 9,
+      "name": "Crib",
+      "status": "Active",
+      "sellerId": 3,
+      "sellerFirstName": "Ben",
+      "sellerLastName": "Farmer",
+      "categoryName": "Furniture",
+      "description": "My two-year-old child no longer sleeps in this crib. Shows some wear on the sides. Mattress included.",
+      "imageUrl": "https://i.ebayimg.com/thumbs/images/g/0AsAAOSw4aRh9F-T/s-l300.jpg",
+      "listDate": "2022-02-23 10:45:39.081Z",
+      "lotteryEntries": [
+        {
+          "userId": 8,
+          "userFirstName": "Diego",
+          "userLastName": "Salazar",
+          "entryDate": "2022-02-23 14:59:09.176Z",
+          "comment": "We need a new crib.",
+          "status": "pending"
+        }
+      ],
+      "winnerContactedMessageId": null
+    },
+    {
+      "id": 10,
+      "name": "Lord of the Rings",
+      "status": "Active",
+      "sellerId": 5,
+      "sellerFirstName": "Derek",
+      "sellerLastName": "Walters",
+      "categoryName": "Books",
+      "description": "In very good shape. Some page corners folded over.",
+      "imageUrl": "https://i.etsystatic.com/7465716/r/il/9a2697/2908959869/il_fullxfull.2908959869_m66y.jpg",
+      "listDate": "2022-02-23 11:15:40.523Z",
+      "lotteryEntries": [],
+      "winnerContactedMessageId": null
+    },
+    {
+      "id": 11,
+      "name": "Bread Maker",
+      "status": "Active",
+      "sellerId": 6,
+      "sellerFirstName": "Joyce",
+      "sellerLastName": "Chambers",
+      "categoryName": "Kitchen",
+      "description": "This bread maker is so easy to use. Just add ingredients, push a few buttons, and wait. Fun activity for parents and kids.",
+      "imageUrl": "https://img.moneysavingmom.com/wp-content/uploads/2014/02/6991344808_129f14fe75.jpg",
+      "listDate": "2022-02-23 11:23:05.894Z",
+      "lotteryEntries": [
+        {
+          "userId": 7,
+          "userFirstName": "Maureen",
+          "userLastName": "O'Neal",
+          "entryDate": "2022-02-23 14:45:18.312Z",
+          "comment": "I am interested.",
+          "status": "pending"
+        }
+      ],
+      "winnerContactedMessageId": null
+    },
+    {
+      "id": 12,
+      "name": "Karaoke Machine",
+      "status": "Active",
+      "sellerId": 7,
+      "sellerFirstName": "Maureen",
+      "sellerLastName": "O'Neal",
+      "categoryName": "Electronics",
+      "description": "This karaoke machine is so much fun. The lights move along to the music.",
+      "imageUrl": "https://thumbor.offerup.com/iqs65laGW_UBDOgat2gysjAmq7Q=/1440x1920/d67c/d67cb6c1091f40e491daed2a1cbc4e01.jpg",
+      "listDate": "2022-02-23 14:28:23.666Z",
+      "lotteryEntries": [
+        {
+          "userId": 8,
+          "userFirstName": "Diego",
+          "userLastName": "Salazar",
+          "entryDate": "2022-02-23 14:57:32.938Z",
+          "comment": "My child would love this for his birthday.",
+          "status": "pending"
+        }
+      ],
+      "winnerContactedMessageId": null
+    },
+    {
+      "id": 13,
+      "name": "Train Cookie Cutters",
+      "status": "Active",
+      "sellerId": 8,
+      "sellerFirstName": "Diego",
+      "sellerLastName": "Salazar",
+      "categoryName": "Kitchen",
+      "description": "My daughter was obsessed with trains. But she has lost interest in making cookies.",
+      "imageUrl": "https://i.ebayimg.com/images/g/bWUAAOSwQ59ZaOxT/s-l400.jpg",
+      "listDate": "2022-02-23 14:58:52.723Z",
+      "lotteryEntries": [],
+      "winnerContactedMessageId": null
+    },
+    {
+      "id": 14,
+      "name": "Coffee Table",
+      "status": "Active",
+      "sellerId": 9,
+      "sellerFirstName": "Catherine",
+      "sellerLastName": "Hendricks",
+      "categoryName": "Furniture",
+      "description": "This coffee table has served us well.",
+      "imageUrl": "https://d2kjfkpnjd3d2z.cloudfront.net/eyJlZGl0cyI6eyJyZXNpemUiOnsiaGVpZ2h0IjowLCJiYWNrZ3JvdW5kIjoid2hpdGUiLCJ3aWR0aCI6MTc0OCwiZml0IjoiY29udGFpbiJ9fSwiYnVja2V0Ijoid2FudGRvbnR3YW50Iiwia2V5IjoicHJvZHVjdHMvaGVucnlyZXNhbGUyNjExMTgvQkJJVEFMSUFjb2ZmZWUuanBnIn0=",
+      "listDate": "2022-02-23 15:18:59.220Z",
       "lotteryEntries": [],
       "winnerContactedMessageId": null
     }
@@ -210,47 +360,65 @@
     {
       "id": 1,
       "firstName": "Matt",
-      "lastName": "Perkins"
+      "lastName": "Perkins",
+      "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c5a48b7809d8e364b16c2bf/1580795479175-ZI1HUMEL8T33KWEJXMX5/Ryde+professional+headshot.jpg",
+      "memberSince": "2020-11-28"
     },
     {
       "id": 2,
       "firstName": "Stephanie",
-      "lastName": "Ames"
+      "lastName": "Ames",
+      "imageUrl": "https://www.jamesgiffordmead-photography.co.uk/wp-content/uploads/2019/04/blonde-girl-against-white-background-web-1.jpg",
+      "memberSince": "2022-01-12"
     },
     {
       "id": 3,
       "firstName": "Ben",
-      "lastName": "Farmer"
+      "lastName": "Farmer",
+      "imageUrl": "https://thumbs.dreamstime.com/b/professional-headshot-man-closeup-portrait-smiling-happy-handsome-purple-sweater-v-neck-wearing-black-glasses-isolated-inside-56247494.jpg",
+      "memberSince": "2021-10-15"
     },
     {
       "id": 4,
       "firstName": "Sarah",
-      "lastName": "Thompson"
+      "lastName": "Thompson",
+      "imageUrl": "https://i0.wp.com/www.sergiogarciaheadshots.com/wp-content/uploads/2021/05/female-black-actor-headshots-los-angeles-dallas-nyc-sergio-garcia-headshots-1-scaled.jpg",
+      "memberSince": "2021-05-18"
     },
     {
       "id": 5,
       "firstName": "Derek",
-      "lastName": "Walters"
+      "lastName": "Walters",
+      "memberSince": "2021-04-13",
+      "imageUrl": "https://toyota-cms-media.s3.amazonaws.com/wp-content/uploads/2021/06/Derek-Caveney-Headshot.jpg"
     },
     {
       "id": 6,
       "firstName": "Joyce",
-      "lastName": "Chambers"
+      "lastName": "Chambers",
+      "memberSince": "2019-12-03",
+      "imageUrl": "https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg"
     },
     {
       "id": 7,
       "firstName": "Maureen",
-      "lastName": "O'Neal"
+      "lastName": "O'Neal",
+      "memberSince": "2021-10-12",
+      "imageUrl": "https://t3.ftcdn.net/jpg/03/87/86/06/360_F_387860637_fnyXFt6vLlaqARcrZpNsUVfcgGAYh0jC.jpg"
     },
     {
       "id": 8,
       "firstName": "Diego",
-      "lastName": "Salazar"
+      "lastName": "Salazar",
+      "memberSince": "2020-03-05",
+      "imageUrl": "https://thumbs.dreamstime.com/t/latino-man-smiling-8993135.jpg"
     },
     {
       "id": 9,
       "firstName": "Catherine",
-      "lastName": "Hendricks"
+      "lastName": "Hendricks",
+      "memberSince": "2022-01-24",
+      "imageUrl": "https://st.depositphotos.com/1008303/1316/i/600/depositphotos_13161087-stock-photo-asian-indian-businesswoman.jpg"
     }
   ],
   "messages": [
@@ -301,6 +469,18 @@
       "itemId": 6,
       "messageContent": "I am curious about this book. What edition is it?",
       "messageSentDate": "2022-02-21 15:05:49.173Z"
+    },
+    {
+      "id": 5,
+      "senderUserId": 7,
+      "senderFirstName": "Maureen",
+      "senderLastName": "O'Neal",
+      "recipientUserId": 4,
+      "recipientFirstName": "Sarah",
+      "recipientLastName": "Thompson",
+      "itemId": 4,
+      "messageContent": "Is this an LED tv or LCD?",
+      "messageSentDate": "2022-02-23 14:39:06.159Z"
     }
   ]
 }

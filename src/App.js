@@ -14,6 +14,8 @@ import MyMessages from './components/my_info/MyMessages';
 import Item from './components/items/Item';
 import { UserProvider } from './context/user';
 import logo from './buy_nothing_logo.jpg';
+import MyProfile from './components/my_info/MyProfile';
+import ShowProfile from './components/my_info/ShowProfile';
 
 function App() {
   function formatGivenDate(givenDate, displayTimeYes1No0) {
@@ -28,9 +30,10 @@ function App() {
         displayedDate += dateArray[2].substr(1);
     }
 
-    displayedDate += ", " + dateArray[3] + " - ";
+    displayedDate += ", " + dateArray[3]
 
     if(displayTimeYes1No0 === 1) {
+        displayedDate += " - ";
         const hour = parseInt(dateArray[4].substr(0, 2));
 
         if(hour >= 13) {
@@ -68,6 +71,7 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
   const [messages, setMessages] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(()=> {
     fetch("http://localhost:3001/categories")
@@ -76,18 +80,14 @@ function App() {
 
       .then(() =>fetch("http://localhost:3001/items"))
       .then((r)=>r.json())
-      .then((itemList) => setItems(itemList.sort((a, b)=> {
-        if(a.name < b.name){
-          return 1;
-          }
-        else {
-          return -1;
-        }
-      }))) 
-
+      .then((itemList) => setItems(itemList)) 
       .then(() =>fetch("http://localhost:3001/messages"))
       .then((r)=>r.json())
       .then((messageList) => setMessages(messageList))
+
+      .then(() =>fetch("http://localhost:3001/users"))
+      .then((r)=>r.json())
+      .then((userList) => setUsers(userList))
       }, [])
 
   const maxItemId = items.reduce(findMaxFieldId, 0);
@@ -111,7 +111,7 @@ function App() {
 
     const updatedItems = [newItem, ...items];
     setItems(updatedItems);
-
+    
     fetch("http://localhost:3001/items", {
       method: "POST",
       headers: {
@@ -250,6 +250,16 @@ function App() {
     postMessage(newMessage);
   }
 
+  const sortedItems = items.sort((a, b)=> {
+    if(a.listDate > b.listDate){
+      return -1;
+      }
+    else {
+      return 1;
+    }
+  }
+  )
+
   return (
   <UserProvider>
     <BrowserRouter>
@@ -264,11 +274,11 @@ function App() {
           </Route>
           
           <Route path = "/browseByDate/">
-            <BrowseByDate items = {items} />
+            <BrowseByDate items = {sortedItems} />
           </Route>
           
           <Route path = "/checkLottery">
-            <CheckLottery items = {items} />
+            <CheckLottery items = {sortedItems} />
           </Route>
 
           <Route path = "/listItem">
@@ -276,15 +286,23 @@ function App() {
           </Route>
           
           <Route path = "/myListings">
-            <MyListings categories = {categories} items = {items} />
+            <MyListings categories = {categories} items = {sortedItems} />
           </Route>
 
           <Route path = "/showItem/:itemId">
-            <Item items = {items} formatGivenDate = {formatGivenDate} updateItems = {updateItems} changeItemStatus = {changeItemStatus} createRecipientMessage = {createRecipientMessage} messages = {messages} enterLottery = {enterLottery} sendSellerMessage = {sendSellerMessage} />
+            <Item items = {sortedItems} formatGivenDate = {formatGivenDate} updateItems = {updateItems} changeItemStatus = {changeItemStatus} createRecipientMessage = {createRecipientMessage} messages = {messages} enterLottery = {enterLottery} sendSellerMessage = {sendSellerMessage} />
+          </Route>
+
+          <Route path = "/myProfile">
+            <MyProfile formatGivenDate = {formatGivenDate} />
+          </Route>
+
+          <Route path = "/showProfile/:userId">
+            <ShowProfile users = {users} formatGivenDate = {formatGivenDate} />
           </Route>
 
           <Route path = "/myMessages">
-            <MyMessages messages = {messages} items = {items} formatGivenDate = {formatGivenDate} generateResponseMessage = {generateResponseMessage} />
+            <MyMessages messages = {messages} items = {sortedItems} formatGivenDate = {formatGivenDate} generateResponseMessage = {generateResponseMessage} />
           </Route>
 
           <Route path = "/">

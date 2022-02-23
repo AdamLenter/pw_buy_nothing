@@ -20,7 +20,7 @@ function ListItem( { categories, addItem } ) {
   useEffect(()=>{
     setFormData({
       itemName: "", 
-      categoryName: categories[0],  
+      categoryName: categories[0] ? categories[0].name : "",  
       imageUrl: "", 
       description: ""
     })
@@ -36,7 +36,7 @@ function ListItem( { categories, addItem } ) {
       event.preventDefault();
       addItem(userInfo, formData);
       setFormData(startingFormData);
-      history.push(`/MyListings`)
+      history.push(`/myListings`)
     }
 
     if(formData) {
