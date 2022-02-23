@@ -19,7 +19,7 @@ function LotteryEntry({ entry }) {
       <p className={entry.status.includes("winner") ? "lotteryEntry lotteryWinner" : "lotteryEntry"}>
         {entry.status.includes("winner") ? <WinnerMessage /> : null}
         <strong>{entry.userFirstName} {entry.userLastName}</strong>
-        <span>: {entry.comment}</span>
+        <span>: {entry.comment ? entry.comment : "(no comment)"}</span>
       </p>
       <br />
     </div>
