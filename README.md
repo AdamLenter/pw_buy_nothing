@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Anytown Buy Nothing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+The Buy Nothing movement has formed in recent years to encourage people to share with others in their community. This has three key benefits:
+    1) Preventing things from going into landfills.
+    2) Enabling people to acquire things that that want/need for free.
+    3) Building a deeper sense of community.
 
-## Available Scripts
+Buy Nothing groups are hyper-local geographically and are generally managed as a group on Facebook. Individuals post items that they are giving away. Individuals can express their interest in an item by posting a comment or sending a direct message to the owner. Owners are encouraged to choose a recipient at random, rather than on a first-come first-served basis because the latter rewards people who are able to spend more time on Facebook than other. 
 
-In the project directory, you can run:
+Facebook has many limitations that this app is designed to overcome:
+    1) Allowing users to browse listings by category.
+    2) Requiring a 24-hour waiting period to select a a recipient of items.
+    3) Easy conducting of random lotteries to select winners.
+    4) Easy viewing of items that the user has listed or entered a lottery for.
 
-### `npm start`
+## Technologies
+The system uses React with a json server as well as React-Bootstrap for the navigation menu.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## File Structure
+app.js - The main screen. It contains all of the fetch requests and update functions as well as all of the route paths 
+db.json - Contains the data for the system.
+The system screens are separated into directories based on their functions:
+    1) find_things - contains files related to searching for items. 
+    2) list_things - contains files related to listing items and viewing one's listings.
+    3) items - contains files related to the display of items. When displaying lists of items and individual item screens (whether for finding or listing items), those files are contained here.
+    4) my_info - contains the user's profile screen as well a screen for sending and receiving messages.
+context - this is where the data about the logged in user lives.
+    
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
+This is a demo system. There is no login/logout screen. An individual user's info from the db.json file can be copied and pasted to the context page to set him/her as the logged in user.
 
-### `npm test`
+To find items, a user has two options:
+    1. Browse listings by category - if there is a particular type of item they are looking for.
+    2. Browse listings by date - to look at the most recent listings if they don't have any particular interest.
+If a user is interested in an item, s/he can enter the lottery for the item. Sometimes a lottery winner is selected but does not end up claiming the item. Therefore, if the lottery has already been conducted, the user can enter a waiting list for the item. Once an item has been claimed, the seller should set the listing as "inactive." In addition to entering the lottery, the user can send a direct message tot he seller with any questions that s/he may have.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To list items, a user enters a name, category, description, and the URL of a photo of the item. Once an item as been listed for 24 hours, a button appears that allows the user to select a recipient at random. Once a recipient is selected, the user is prompted to send a message to that individual with instructions for how to pick up the item. That message goes into the recipients message screen.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In the "My Info" section, each user has a profile screen as well as a "My messages" screen. Messages are listed in chronological order (with the most recent first). Scrolling over a message reveals a textbox in which a user can write a response.

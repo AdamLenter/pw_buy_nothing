@@ -286,7 +286,16 @@
       "description": "In very good shape. Some page corners folded over.",
       "imageUrl": "https://i.etsystatic.com/7465716/r/il/9a2697/2908959869/il_fullxfull.2908959869_m66y.jpg",
       "listDate": "2022-02-23 11:15:40.523Z",
-      "lotteryEntries": [],
+      "lotteryEntries": [
+        {
+          "userId": 9,
+          "userFirstName": "Catherine",
+          "userLastName": "Hendricks",
+          "entryDate": "2022-02-24 08:28:00.067Z",
+          "comment": "I saw the movies and  would love to read this book.",
+          "status": "pending"
+        }
+      ],
       "winnerContactedMessageId": null
     },
     {
