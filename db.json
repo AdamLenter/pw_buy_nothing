@@ -35,20 +35,12 @@
       "imageUrl": "https://az827626.vo.msecnd.net/cdn/buysell/images/thumbnail/buysell_2021-09-24-05-00-41-998_761.jpg",
       "lotteryEntries": [
         {
-          "userId": 4,
-          "userFirstName": "Sarah",
-          "userLastName": "Thompson",
-          "entryDate": "2022-02-01 18:12:24",
-          "comment": "That couch is beautiful! It is just what we are looking for.",
-          "status": "winner not contacted"
-        },
-        {
           "userId": 6,
           "userFirstName": "Joyce",
           "userLastName": "Chambers",
           "entryDate": "2022-02-02 08:27:24",
           "comment": "We just moved to town and NEED furniture.",
-          "status": "pending"
+          "status": "winner contacted"
         },
         {
           "userId": 3,
@@ -59,7 +51,7 @@
           "status": "pending"
         }
       ],
-      "winnerContactedMessageId": null
+      "winnerContactedMessageId": 7
     },
     {
       "id": 2,
@@ -126,7 +118,7 @@
           "userLastName": "Hendricks",
           "entryDate": "2022-02-23 15:20:20.211Z",
           "comment": "",
-          "status": "pending"
+          "status": "withdrawn"
         }
       ],
       "winnerContactedMessageId": null
@@ -256,9 +248,9 @@
       "id": 9,
       "name": "Crib",
       "status": "Active",
-      "sellerId": 3,
-      "sellerFirstName": "Ben",
-      "sellerLastName": "Farmer",
+      "sellerId": 9,
+      "sellerFirstName": "Catherine",
+      "sellerLastName": "Hendricks",
       "categoryName": "Furniture",
       "description": "My two-year-old child no longer sleeps in this crib. Shows some wear on the sides. Mattress included.",
       "imageUrl": "https://i.ebayimg.com/thumbs/images/g/0AsAAOSw4aRh9F-T/s-l300.jpg",
@@ -270,7 +262,7 @@
           "userLastName": "Salazar",
           "entryDate": "2022-02-23 14:59:09.176Z",
           "comment": "We need a new crib.",
-          "status": "pending"
+          "status": "withdrawn"
         }
       ],
       "winnerContactedMessageId": null
@@ -498,6 +490,42 @@
       "itemId": 4,
       "messageContent": "Is this an LED tv or LCD?",
       "messageSentDate": "2022-02-23 14:39:06.159Z"
+    },
+    {
+      "id": 6,
+      "senderUserId": 1,
+      "senderFirstName": "Matt",
+      "senderLastName": "Perkins",
+      "recipientUserId": 4,
+      "recipientFirstName": "Sarah",
+      "recipientLastName": "Thompson",
+      "itemId": 1,
+      "messageContent": "Hi Sarah. You have been selected to receive my Couch. Will you be available today after 4:00 PM to pick it up?",
+      "messageSentDate": "2022-02-24 09:26:15.883Z"
+    },
+    {
+      "id": 7,
+      "senderUserId": 1,
+      "senderFirstName": "Matt",
+      "senderLastName": "Perkins",
+      "recipientUserId": 6,
+      "recipientFirstName": "Joyce",
+      "recipientLastName": "Chambers",
+      "itemId": 1,
+      "messageContent": "Hi Joyce. You have been selected to receive my Couch. Can you come this afternoon to get it?",
+      "messageSentDate": "2022-02-24 09:48:26.647Z"
+    },
+    {
+      "id": 8,
+      "senderUserId": 1,
+      "senderFirstName": "Matt",
+      "senderLastName": "Perkins",
+      "recipientUserId": 4,
+      "recipientFirstName": "Sarah",
+      "recipientLastName": "Thompson",
+      "itemId": 6,
+      "messageContent": "This version was printed in 2015.",
+      "messageSentDate": "2022-02-24 09:48:55.758Z"
     }
   ]
 }

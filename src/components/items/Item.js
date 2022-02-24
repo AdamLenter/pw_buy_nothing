@@ -13,7 +13,11 @@ function WinnerMessage() {
     </>
   )
 }
-function LotteryEntry({ entry }) {
+function LotteryEntry({ item, entry, withdrawButtonPresent, withdrawLotteryEntry }) {
+  function handleWithdrawLotteryEntry() {
+    withdrawLotteryEntry(item, entry);
+  }
+
   return(
     <div>
       <p className={entry.status.includes("winner") ? "lotteryEntry lotteryWinner" : "lotteryEntry"}>
@@ -21,12 +25,17 @@ function LotteryEntry({ entry }) {
         <strong>{entry.userFirstName} {entry.userLastName}</strong>
         <span>: {entry.comment ? entry.comment : "(no comment)"}</span>
       </p>
-      <br />
+      {withdrawButtonPresent ? 
+        <div>
+          <button className = "detailsButton" onClick = {()=>handleWithdrawLotteryEntry()}>Withdraw</button>
+          <br />
+          <br />
+        </div> : null}
     </div>
   )
 }
 
-function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRecipientMessage, messages, enterLottery, sendSellerMessage }) {  
+function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRecipientMessage, messages, enterLottery, sendSellerMessage, withdrawLotteryEntry }) {  
 
   const userInfo = useContext(UserContext);
 
@@ -124,7 +133,7 @@ function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRec
           ) : null}
             <br />
             <h2>Lottery</h2>
-            {displayedEntries ? displayedEntries.map((entry) => <LotteryEntry key = {entry.userId} entry = {entry} />) : <strong>None</strong>}
+            {displayedEntries ? displayedEntries.map((entry) => <LotteryEntry key = {entry.userId} item = {itemInfo} entry = {entry} withdrawButtonPresent = {userInfo.id === itemInfo.sellerId || userInfo.id === entry.userId} withdrawLotteryEntry = {withdrawLotteryEntry} />) : <strong>None</strong>}
           </div>
           {(userInfo.id === itemInfo.sellerId && currentTime >= lotteryTime) ? <ItemSellerScreen itemInfo = {itemInfo} eligibleEntries = {displayedEntries} updateItems = {updateItems} createRecipientMessage = {createRecipientMessage} messages = {messages} /> : null}
 

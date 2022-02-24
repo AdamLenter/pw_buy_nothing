@@ -26,6 +26,7 @@ The system screens are separated into directories based on their functions:
     3) items - contains files related to the display of items. When displaying lists of items and individual item screens (whether for finding or listing items), those files are contained here.
     4) my_info - contains the user's profile screen as well a screen for sending and receiving messages.
 context - this is where the data about the logged in user lives.
+index.css - contains all of the css for the app.
     
 
 ## Usage

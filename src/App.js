@@ -250,6 +250,32 @@ function App() {
     postMessage(newMessage);
   }
 
+  function withdrawLotteryEntry(item, entryToUpdate) {
+    let updatedEntry = {...entryToUpdate};
+    updatedEntry.status = "withdrawn";
+
+    let updatedEntries = item.lotteryEntries.map((entry) => {
+      if(entry.userId === entryToUpdate.userId) {
+        return updatedEntry;
+      }
+      else {
+        return entry;
+      }
+    })
+    
+    let updatedItem = {...item};
+
+    updatedItem.lotteryEntries = updatedEntries;
+    
+    if(item.winnerContactedMessageId) {
+      const winnerMessageInfo = messages.find((message) => message.id === item.winnerContactedMessageId);
+      if(winnerMessageInfo.recipientUserId === updatedEntry.userId) {
+        updatedItem.winnerContactedMessageId = null;
+      }
+    }
+    updateItems(updatedItem);
+  }
+
   const sortedItems = items.sort((a, b)=> {
     if(a.listDate > b.listDate){
       return -1;
@@ -290,7 +316,7 @@ function App() {
           </Route>
 
           <Route path = "/showItem/:itemId">
-            <Item items = {sortedItems} formatGivenDate = {formatGivenDate} updateItems = {updateItems} changeItemStatus = {changeItemStatus} createRecipientMessage = {createRecipientMessage} messages = {messages} enterLottery = {enterLottery} sendSellerMessage = {sendSellerMessage} />
+            <Item items = {sortedItems} formatGivenDate = {formatGivenDate} updateItems = {updateItems} changeItemStatus = {changeItemStatus} createRecipientMessage = {createRecipientMessage} messages = {messages} enterLottery = {enterLottery} sendSellerMessage = {sendSellerMessage} withdrawLotteryEntry = {withdrawLotteryEntry} />
           </Route>
 
           <Route path = "/myProfile">
