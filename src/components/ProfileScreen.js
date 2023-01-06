@@ -1,7 +1,11 @@
 import React from "react";
 
 function ProfileScreen({ loggedInUserInfo, profileUserInfo, formatGivenDate }) {
-    const userSinceDate = new Date(profileUserInfo.memberSince);
+    
+    let userSinceDate;
+    if(profileUserInfo.memberSince) {
+        userSinceDate = new Date(profileUserInfo.memberSince);
+    }
     
     return (
         <div>
@@ -20,7 +24,7 @@ function ProfileScreen({ loggedInUserInfo, profileUserInfo, formatGivenDate }) {
                     <br />
                     <strong>Last name</strong>: {profileUserInfo.lastName}
                     <br />
-                    <strong>Member since</strong>: {formatGivenDate(userSinceDate, 0)}
+                    <strong>Member since</strong>: {userSinceDate ? formatGivenDate(userSinceDate, 0) : ""}
                 </p>
                 </div>
             </div>
