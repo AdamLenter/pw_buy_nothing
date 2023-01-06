@@ -67,15 +67,7 @@ function App() {
     return Math.max(currentValue, newValue.id);
   }
 
-  const [userInfo, setUser] = useState(
-    {
-      "id": 1,
-      "firstName": "Matt",
-      "lastName": "Perkins",
-      "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c5a48b7809d8e364b16c2bf/1580795479175-ZI1HUMEL8T33KWEJXMX5/Ryde+professional+headshot.jpg",
-      "memberSince": "2020-11-28"
-    }
-  )
+  const [userInfo, setUserInfo] = useState({});
 
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
@@ -85,22 +77,28 @@ function App() {
   useEffect(()=> {
     fetch("http://localhost:3001/categories")
       .then((r)=>r.json())
-      .then((categoryList) => setCategories(categoryList))
+      .then((categoryList) => setCategories(categoryList));
 
-      .then(() =>fetch("http://localhost:3001/items"))
+    fetch("http://localhost:3001/items")
       .then((r)=>r.json())
-      .then((itemList) => setItems(itemList)) 
-      .then(() =>fetch("http://localhost:3001/messages"))
-      .then((r)=>r.json())
-      .then((messageList) => setMessages(messageList))
+      .then((itemList) => setItems(itemList));
 
-      .then(() =>fetch("http://localhost:3001/users"))
+    fetch("http://localhost:3001/messages")
+      .then((r)=>r.json())
+      .then((messageList) => setMessages(messageList));
+
+    fetch("http://localhost:3001/users")
       .then((r)=>r.json())
       .then((userList) => setUsers(userList))
       }, [])
 
   const maxItemId = items.reduce(findMaxFieldId, 0);
   const maxMessageId = messages.reduce(findMaxFieldId, 0);
+
+  if(users && users[0] && !userInfo.id) {
+    setUserInfo(users[0]);
+    console.log(userInfo)
+  }
 
   function addItem(userInfo, formData) {
     const newItem = {
