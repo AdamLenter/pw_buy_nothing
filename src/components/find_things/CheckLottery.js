@@ -1,7 +1,6 @@
 import React from "react";
 import ItemPage from "../items/ItemPage";
 
-
 function CheckLottery({ userInfo, items }) {
   
   const displayedItems = items.filter((item) => item.lotteryEntries.find((entry) => entry.userId === userInfo.id))
