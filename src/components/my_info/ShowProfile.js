@@ -1,20 +1,19 @@
-import React, { useContext } from "react";
+import React from "react";
 import ProfileScreen from "../ProfileScreen";
 import { useParams } from "react-router-dom";
 
 
 
-function ShowProfile({ users, formatGivenDate }) {
+function ShowProfile({ userInfo, users, formatGivenDate }) {
     const params = useParams();
     console.log(params);
     const userId = params.userId;
     
 
-    const userInfo = users.find((user) => user.id == userId);
+    const profileUserInfo = users.find((user) => user.id == userId);
 
     return (
-        userInfo ? (<ProfileScreen profileUserInfo = {userInfo} formatGivenDate = {formatGivenDate} />) : <div>Loading...</div>
-        
+        profileUserInfo ? (<ProfileScreen loggedInUserInfo = {userInfo} profileUserInfo = {profileUserInfo} formatGivenDate = {formatGivenDate} />) : <div>Loading...</div>
     )
     }
 

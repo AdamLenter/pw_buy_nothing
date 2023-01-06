@@ -1,12 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
-import { UserContext } from "../../context/user";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 
 
-function ListItem( { categories, addItem } ) {
+function ListItem( { userInfo, categories, addItem } ) {
   const history = useHistory();
-  const userInfo = useContext(UserContext);
   
   const startingFormData = {
     itemName: "", 

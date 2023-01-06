@@ -1,11 +1,9 @@
 import { isDisabled } from "@testing-library/user-event/dist/utils";
-import React, { useState, useContext } from "react";
-import { UserContext } from "../../context/user";
+import React, { useState } from "react";
 
-function EnterLotteryScreen( { itemInfo, enterLottery }){
+function EnterLotteryScreen( { userInfo, itemInfo, enterLottery }){
     const [entryComment, setEntryComment] = useState("")
-    const userInfo = useContext(UserContext);
-
+    
     function handleTextArea(event) {
         setEntryComment(event.target.value)
     }

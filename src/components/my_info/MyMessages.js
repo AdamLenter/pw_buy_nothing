@@ -1,11 +1,8 @@
-import React, { useContext, useState } from "react";
-import { UserContext } from "../../context/user";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function MyMessages({ messages, items, formatGivenDate, generateResponseMessage }) {
+function MyMessages({ userInfo, messages, items, formatGivenDate, generateResponseMessage }) {
   const [displayedMessageId, setDisplayedMessage] = useState(null);
-
-  const userInfo = useContext(UserContext);
 
   function Message ({ message, formatGivenDate }) {
    

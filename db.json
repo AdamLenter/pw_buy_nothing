@@ -379,6 +379,14 @@
           "userLastName": "Perkins",
           "entryDate": "2022-02-24 11:07:27.158Z",
           "comment": "I LOVE singing karaoke!!!",
+          "status": "withdrawn"
+        },
+        {
+          "userId": 1,
+          "userFirstName": "Matt",
+          "userLastName": "Perkins",
+          "entryDate": "2023-01-06 15:48:37.932Z",
+          "comment": "That looks really cool.",
           "status": "pending"
         }
       ],
@@ -723,6 +731,18 @@
       "itemId": 12,
       "messageContent": "Hi Maureen. Is the karaoke machine still available?",
       "messageSentDate": "2022-10-28 13:45:54.993Z"
+    },
+    {
+      "id": 15,
+      "senderUserId": 1,
+      "senderFirstName": "Matt",
+      "senderLastName": "Perkins",
+      "recipientUserId": 7,
+      "recipientFirstName": "Maureen",
+      "recipientLastName": "O'Neal",
+      "itemId": 12,
+      "messageContent": "Can the karaoke machine work with batteries or does it need to be plugged in?",
+      "messageSentDate": "2023-01-06 15:49:18.505Z"
     }
   ]
 }

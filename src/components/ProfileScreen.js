@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
-import { UserContext } from "../context/user";
+import React from "react";
 
-function ProfileScreen({ profileUserInfo, formatGivenDate }) {
+function ProfileScreen({ loggedInUserInfo, profileUserInfo, formatGivenDate }) {
     const userSinceDate = new Date(profileUserInfo.memberSince);
-    const userInfo = useContext(UserContext);
+    
     return (
         <div>
             <h1 className = "pageTitle">
-            {userInfo.id === profileUserInfo.id ? "My Profile" : "Profile"}
+            {loggedInUserInfo.id === profileUserInfo.id ? "My Profile" : "Profile"}
             </h1>
 
             <div className = "listingDiv">

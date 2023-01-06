@@ -12,7 +12,6 @@ import ListItem from './components/list_things/ListItem';
 import MyListings from './components/list_things/MyListings';
 import MyMessages from './components/my_info/MyMessages';
 import Item from './components/items/Item';
-import { UserProvider } from './context/user';
 import logo from './buy_nothing_logo.jpg';
 import MyProfile from './components/my_info/MyProfile';
 import ShowProfile from './components/my_info/ShowProfile';
@@ -67,6 +66,16 @@ function App() {
   function findMaxFieldId(currentValue, newValue) {
     return Math.max(currentValue, newValue.id);
   }
+
+  const [userInfo, setUser] = useState(
+    {
+      "id": 1,
+      "firstName": "Matt",
+      "lastName": "Perkins",
+      "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c5a48b7809d8e364b16c2bf/1580795479175-ZI1HUMEL8T33KWEJXMX5/Ryde+professional+headshot.jpg",
+      "memberSince": "2020-11-28"
+    }
+  )
 
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
@@ -287,59 +296,58 @@ function App() {
   )
 
   return (
-  <UserProvider>
-    <BrowserRouter>
-      <NavBar />
-        <Switch>
-          <Route path = "/browseCategories">
-            <BrowseCategories categories = {categories} />
-          </Route>
+  
+  <BrowserRouter>
+    <NavBar />
+      <Switch>
+        <Route path = "/browseCategories">
+          <BrowseCategories categories = {categories} />
+        </Route>
 
-          <Route path = "/browseCategory/:categoryName">
-            <BrowseCategory categories = {categories} items = {items} />
-          </Route>
-          
-          <Route path = "/browseByDate/">
-            <BrowseByDate items = {sortedItems} />
-          </Route>
-          
-          <Route path = "/checkLottery">
-            <CheckLottery items = {sortedItems} />
-          </Route>
+        <Route path = "/browseCategory/:categoryName">
+          <BrowseCategory categories = {categories} items = {items} />
+        </Route>
+        
+        <Route path = "/browseByDate/">
+          <BrowseByDate items = {sortedItems} />
+        </Route>
+        
+        <Route path = "/checkLottery">
+          <CheckLottery userInfo = {userInfo} items = {sortedItems} />
+        </Route>
 
-          <Route path = "/listItem">
-            <ListItem categories = {categories} addItem = {addItem} />
-          </Route>
-          
-          <Route path = "/myListings">
-            <MyListings categories = {categories} items = {sortedItems} />
-          </Route>
+        <Route path = "/listItem">
+          <ListItem userInfo = {userInfo} categories = {categories} addItem = {addItem} />
+        </Route>
+        
+        <Route path = "/myListings">
+          <MyListings userInfo = {userInfo} categories = {categories} items = {sortedItems} />
+        </Route>
 
-          <Route path = "/showItem/:itemId">
-            <Item items = {sortedItems} formatGivenDate = {formatGivenDate} updateItems = {updateItems} changeItemStatus = {changeItemStatus} createRecipientMessage = {createRecipientMessage} messages = {messages} enterLottery = {enterLottery} sendSellerMessage = {sendSellerMessage} withdrawLotteryEntry = {withdrawLotteryEntry} />
-          </Route>
+        <Route path = "/showItem/:itemId">
+          <Item userInfo = {userInfo} items = {sortedItems} formatGivenDate = {formatGivenDate} updateItems = {updateItems} changeItemStatus = {changeItemStatus} createRecipientMessage = {createRecipientMessage} messages = {messages} enterLottery = {enterLottery} sendSellerMessage = {sendSellerMessage} withdrawLotteryEntry = {withdrawLotteryEntry} />
+        </Route>
 
-          <Route path = "/myProfile">
-            <MyProfile formatGivenDate = {formatGivenDate} />
-          </Route>
+        <Route path = "/myProfile">
+          <MyProfile userInfo = {userInfo} formatGivenDate = {formatGivenDate} />
+        </Route>
 
-          <Route path = "/showProfile/:userId">
-            <ShowProfile users = {users} formatGivenDate = {formatGivenDate} />
-          </Route>
+        <Route path = "/showProfile/:userId">
+          <ShowProfile userInfo = {userInfo} users = {users} formatGivenDate = {formatGivenDate} />
+        </Route>
 
-          <Route path = "/myMessages">
-            <MyMessages messages = {messages} items = {sortedItems} formatGivenDate = {formatGivenDate} generateResponseMessage = {generateResponseMessage} />
-          </Route>
+        <Route path = "/myMessages">
+          <MyMessages userInfo = {userInfo} messages = {messages} items = {sortedItems} formatGivenDate = {formatGivenDate} generateResponseMessage = {generateResponseMessage} />
+        </Route>
 
-          <Route path = "/">
-            <div className = "itemDiv">
-              <img className = "logo" src = {logo} alt = "Buy Nothing Logo" />
-            </div>
-          </Route>
-          
-        </Switch>
-    </BrowserRouter>
-  </UserProvider>
+        <Route path = "/">
+          <div className = "itemDiv">
+            <img className = "logo" src = {logo} alt = "Buy Nothing Logo" />
+          </div>
+        </Route>
+        
+      </Switch>
+  </BrowserRouter>
   );
 }
 

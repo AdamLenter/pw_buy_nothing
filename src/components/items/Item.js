@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { UserContext } from "../../context/user";
 import EnterLotteryScreen from "../find_things/EnterLotteryScreen";
 import ItemSellerScreen from "../list_things/ItemSellerScreen";
 import { Link } from "react-router-dom";
@@ -35,9 +34,7 @@ function LotteryEntry({ item, entry, withdrawButtonPresent, withdrawLotteryEntry
   )
 }
 
-function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRecipientMessage, messages, enterLottery, sendSellerMessage, withdrawLotteryEntry }) {  
-
-  const userInfo = useContext(UserContext);
+function Item({ userInfo, items, formatGivenDate, updateItems, changeItemStatus, createRecipientMessage, messages, enterLottery, sendSellerMessage, withdrawLotteryEntry }) {  
 
   const params = useParams();
 
@@ -137,7 +134,7 @@ function Item({ items, formatGivenDate, updateItems, changeItemStatus, createRec
           </div>
           {(userInfo.id === itemInfo.sellerId && currentTime >= lotteryTime) ? <ItemSellerScreen itemInfo = {itemInfo} eligibleEntries = {displayedEntries} updateItems = {updateItems} createRecipientMessage = {createRecipientMessage} messages = {messages} /> : null}
 
-          {(userInfo.id !== itemInfo.sellerId) ? <EnterLotteryScreen itemInfo = {itemInfo} enterLottery = {enterLottery} /> : null}
+          {(userInfo.id !== itemInfo.sellerId) ? <EnterLotteryScreen userInfo = {userInfo} itemInfo = {itemInfo} enterLottery = {enterLottery} /> : null}
 
 
         </div>

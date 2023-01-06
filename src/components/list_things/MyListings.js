@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import { UserContext } from "../../context/user";
+import React from "react";
 import ItemPage from "../items/ItemPage";
 
 
-function MyListings({ items }) {
-  const userInfo = useContext(UserContext);
+function MyListings({ userInfo, items }) {
   const displayedItems = items.filter((item) => item.sellerId === userInfo.id);
 
   return (
