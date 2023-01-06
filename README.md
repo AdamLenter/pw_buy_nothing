@@ -28,6 +28,13 @@ The system screens are separated into directories based on their functions:
 context - this is where the data about the logged in user lives.
 index.css - contains all of the css for the app.
     
+## Setup
+The system data is stored in a json server. To run the server, navigate to the main directory in a terminal window and enter:
+json-server --watch db.json --port 3001 
+
+Then, in another terminal window, from the same directory, enter:
+npm start
+That will launch the app in your default browser.
 
 ## Usage
 This is a demo system. There is no login/logout screen. An individual user's info from the db.json file can be copied and pasted to the context page to set him/her as the logged in user.
@@ -40,3 +47,5 @@ If a user is interested in an item, s/he can enter the lottery for the item. Som
 To list items, a user enters a name, category, description, and the URL of a photo of the item. Once an item as been listed for 24 hours, a button appears that allows the user to select a recipient at random. Once a recipient is selected, the user is prompted to send a message to that individual with instructions for how to pick up the item. That message goes into the recipients message screen.
 
 In the "My Info" section, each user has a profile screen as well as a "My messages" screen. Messages are listed in chronological order (with the most recent first). Scrolling over a message reveals a textbox in which a user can write a response.
+
+A user can withdraw from a lottery that s/he has entered. The seller can also remove a user from the lottery of an item that s/he is selling. That is particularly helpful in the event that somebody has won a lottery but never claimed the item. It allows the user to conduct another lottery.
