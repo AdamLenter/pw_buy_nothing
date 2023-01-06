@@ -19,13 +19,15 @@ The system uses React with a json server as well as React-Bootstrap for the navi
 
 ## File Structure
 app.js - The main screen. It contains all of the fetch requests and update functions as well as all of the route paths 
+
 db.json - Contains the data for the system.
+
 The system screens are separated into directories based on their functions:
     1) find_things - contains files related to searching for items. 
     2) list_things - contains files related to listing items and viewing one's listings.
     3) items - contains files related to the display of items. When displaying lists of items and individual item screens (whether for finding or listing items), those files are contained here.
     4) my_info - contains the user's profile screen as well a screen for sending and receiving messages.
-context - this is where the data about the logged in user lives.
+    
 index.css - contains all of the css for the app.
     
 ## Setup
@@ -37,7 +39,7 @@ npm start
 That will launch the app in your default browser.
 
 ## Usage
-This is a demo system. There is no login/logout screen. An individual user's info from the db.json file can be copied and pasted to the context page to set him/her as the logged in user.
+This is a demo system. There is no login/logout screen. By default, the first user in the database is logged in when the app is loaded.
 
 To find items, a user has two options:
     1. Browse listings by category - if there is a particular type of item they are looking for.
