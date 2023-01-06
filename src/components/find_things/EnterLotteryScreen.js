@@ -23,9 +23,9 @@ function EnterLotteryScreen( { itemInfo, enterLottery }){
 
     return (
         <div>
-            <h2>
+            <h3>
                 {itemInfo.lotteryEntries.find((entry)=>entry.status.includes("winner")) ? "Enter Waiting List" : "Enter Lottery"}
-            </h2>
+            </h3>
 
             <form onSubmit = {(event)=>handleSubmit(event)}>
                 <label>Comment:</label>
