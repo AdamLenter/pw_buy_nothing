@@ -15,6 +15,7 @@ import Item from './components/items/Item';
 import logo from './buy_nothing_logo.jpg';
 import MyProfile from './components/my_info/MyProfile';
 import ShowProfile from './components/my_info/ShowProfile';
+import ChangeUser from './components/ChangeUser';
 
 function App() {
   function formatGivenDate(givenDate, displayTimeYes1No0) {
@@ -97,7 +98,6 @@ function App() {
 
   if(users && users[0] && !userInfo.id) {
     setUserInfo(users[0]);
-    console.log(userInfo)
   }
 
   function addItem(userInfo, formData) {
@@ -328,6 +328,10 @@ function App() {
 
         <Route path = "/myProfile">
           <MyProfile userInfo = {userInfo} formatGivenDate = {formatGivenDate} />
+        </Route>
+
+        <Route path = "/changeUser">
+          <ChangeUser userInfo = {userInfo} users = {users} setUserInfo = {setUserInfo} />
         </Route>
 
         <Route path = "/showProfile/:userId">

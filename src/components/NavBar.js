@@ -48,6 +48,10 @@ function NavBar() {
                 <LinkContainer to="/myMessages">
                   <NavDropdown.Item>My Messages</NavDropdown.Item>
                 </LinkContainer>
+
+                <LinkContainer to="/changeUser">
+                  <NavDropdown.Item>Switch User</NavDropdown.Item>
+                </LinkContainer>
               </NavDropdown>
 
           </Nav>
