@@ -18,8 +18,13 @@ import ShowProfile from './components/my_info/ShowProfile';
 import ChangeUser from './components/ChangeUser';
 
 function App() {
+  const timeZoneHoursToAdd = 5;
+
   function formatGivenDate(givenDate, displayTimeYes1No0) {
-    const dateArray = givenDate.toString().split(' ');
+    const adjustedDateAsTime = givenDate.getTime() + (60 * 60 * 1000 * timeZoneHoursToAdd);
+    const adjustedDate = new Date(adjustedDateAsTime);
+
+    const dateArray = adjustedDate.toString().split(' ');
     let amPm;
     let displayedDate = dateArray[1] + " ";
 
