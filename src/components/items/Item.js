@@ -130,7 +130,7 @@ function Item({ userInfo, items, formatGivenDate, updateItems, changeItemStatus,
           ) : null}
             <br />
             <h2>Lottery</h2>
-            {displayedEntries ? displayedEntries.map((entry) => <LotteryEntry key = {entry.userId} item = {itemInfo} entry = {entry} withdrawButtonPresent = {userInfo.id === itemInfo.sellerId || userInfo.id === entry.userId} withdrawLotteryEntry = {withdrawLotteryEntry} />) : <strong>None</strong>}
+            {displayedEntries.length > 0 ? displayedEntries.map((entry) => <LotteryEntry key = {entry.userId} item = {itemInfo} entry = {entry} withdrawButtonPresent = {userInfo.id === itemInfo.sellerId || userInfo.id === entry.userId} withdrawLotteryEntry = {withdrawLotteryEntry} />) : <span>(No entries yet)</span>}
           </div>
           {(userInfo.id === itemInfo.sellerId && currentTime >= lotteryTime) ? <ItemSellerScreen itemInfo = {itemInfo} eligibleEntries = {displayedEntries} updateItems = {updateItems} createRecipientMessage = {createRecipientMessage} messages = {messages} /> : null}
 
