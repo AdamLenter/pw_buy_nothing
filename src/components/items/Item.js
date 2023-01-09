@@ -3,36 +3,7 @@ import { useParams } from "react-router-dom";
 import EnterLotteryScreen from "../find_things/EnterLotteryScreen";
 import ItemSellerScreen from "../list_things/ItemSellerScreen";
 import { Link } from "react-router-dom";
-
-function WinnerMessage() {
-  return (
-    <>
-      <strong>WINNER:</strong>
-      <br />
-    </>
-  )
-}
-function LotteryEntry({ item, entry, withdrawButtonPresent, withdrawLotteryEntry }) {
-  function handleWithdrawLotteryEntry() {
-    withdrawLotteryEntry(item, entry);
-  }
-
-  return(
-    <div>
-      <p className={entry.status.includes("winner") ? "lotteryEntry lotteryWinner" : "lotteryEntry"}>
-        {entry.status.includes("winner") ? <WinnerMessage /> : null}
-        <strong>{entry.userFirstName} {entry.userLastName}</strong>
-        <span>: {entry.comment ? entry.comment : "(no comment)"}</span>
-      </p>
-      {withdrawButtonPresent ? 
-        <div>
-          <button className = "detailsButton" onClick = {()=>handleWithdrawLotteryEntry()}>Withdraw</button>
-          <br />
-          <br />
-        </div> : null}
-    </div>
-  )
-}
+import LotteryEntry from "./LotteryEntry";
 
 function Item({ userInfo, items, formatGivenDate, updateItems, changeItemStatus, createRecipientMessage, messages, enterLottery, sendSellerMessage, withdrawLotteryEntry }) {  
 
