@@ -21,10 +21,9 @@ function Item({ userInfo, items, formatGivenDate, updateItems, changeItemStatus,
     const listDate = new Date(itemInfo.listDate);
     const listTime = listDate.getTime();
     const lotteryTime = listTime + (60 * 60 * 24 * 1000);
-    const lotteryDate = new Date(lotteryTime);
 
-    const formattedListDate = formatGivenDate(listDate, 1);
-    const formattedLotteryDate = formatGivenDate(lotteryDate, 1);
+    const formattedListDate = formatGivenDate(itemInfo.listDate, 1);
+    const formattedLotteryDate = formatGivenDate(itemInfo.listDate, 1, 24);
     
     const currentTime = new Date().getTime(); 
     const displayedEntries = itemInfo.lotteryEntries.filter((entry) => entry.status !== "withdrawn")

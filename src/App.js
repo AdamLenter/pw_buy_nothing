@@ -18,10 +18,10 @@ import ShowProfile from './components/my_info/ShowProfile';
 import ChangeUser from './components/ChangeUser';
 
 function App() {
-  const timeZoneHoursToAdd = 5;
 
-  function formatGivenDate(givenDate, displayTimeYes1No0) {
-    const adjustedDateAsTime = givenDate.getTime() + (60 * 60 * 1000 * timeZoneHoursToAdd);
+  function formatGivenDate(givenDate, displayTimeYes1No0, hoursToAdd = 0) {
+    givenDate = new Date(givenDate);
+    const adjustedDateAsTime = givenDate.getTime() + (60 * 60 * 1000 * (hoursToAdd));
     const adjustedDate = new Date(adjustedDateAsTime);
 
     const dateArray = adjustedDate.toString().split(' ');
@@ -62,10 +62,6 @@ function App() {
   }
 
   function convertDateToJSON(givenDate) {
-    const offset = givenDate.getTimezoneOffset();
-    
-    givenDate = new Date(givenDate.getTime() - (offset*60*1000));
-    
     return givenDate.toISOString().split('T')[0] + " " + givenDate.toISOString().split('T')[1];
   }
 
@@ -79,7 +75,7 @@ function App() {
   const [items, setItems] = useState([]);
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
-
+  
   useEffect(()=> {
     fetch("http://localhost:3001/categories")
       .then((r)=>r.json())

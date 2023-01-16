@@ -41,7 +41,7 @@ function MyMessages({ userInfo, messages, items, formatGivenDate, generateRespon
         <p >
           <br />
           <span className = {message.senderUserId == userInfo.id ? "userMessageSender" : "userMessageRecipient"}>
-            {message.senderUserId == userInfo.id ? "To: " + message.recipientFirstName + " " + message.recipientLastName : "From: " + message.senderFirstName + " " + message.senderLastName} ({formatGivenDate(new Date(message.messageSentDate), 1)}):
+            {message.senderUserId == userInfo.id ? "To: " + message.recipientFirstName + " " + message.recipientLastName : "From: " + message.senderFirstName + " " + message.senderLastName} ({formatGivenDate(message.messageSentDate, 1)}):
           </span>
           <br />
           {message.itemId ? (
