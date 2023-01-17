@@ -36,7 +36,6 @@ function ItemSellerScreen({ itemInfo, eligibleEntries, updateItems, createRecipi
         )
     }
     else {
-        
         if(!itemInfo.winnerContactedMessageId) {
             return (
                 <form onSubmit = {(event)=>handleSendMessageSubmit(event)}>
