@@ -33,7 +33,6 @@ function ListItem( { userInfo, categories, addItem } ) {
     function handleSubmit(event) {
       event.preventDefault();
       addItem(userInfo, formData);
-      setFormData(startingFormData);
       history.push(`/myListings`)
     }
 
